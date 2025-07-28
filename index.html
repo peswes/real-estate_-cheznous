@@ -42,38 +42,40 @@
       <nav class="navbar container" data-navbar>
         <ul class="navbar-list">
 
-          <li>
-            <a href="#" class="navbar-link" data-nav-link>Home</a>
-          </li>
+ <li>
+  <a href="#" class="navbar-link" data-nav-link>Home</a>
+</li>
 
-          <li>
-            <a href="#" class="navbar-link" data-nav-link>Buy</a>
-          </li>
+<li>
+  <a href="#" class="navbar-link" data-nav-link>Rooms</a>
+</li>
 
-          <li>
-            <a href="#" class="navbar-link" data-nav-link>Sell</a>
-          </li>
+<li>
+  <a href="#" class="navbar-link" data-nav-link>Book Now</a>
+</li>
 
-          <li>
-            <a href="#" class="navbar-link" data-nav-link>Listing</a>
-          </li>
+<li>
+  <a href="#" class="navbar-link" data-nav-link>Rates</a>
+</li>
 
+<li>
+  <a href="#" class="navbar-link" data-nav-link>Services</a>
+</li>
 
-          <li>
-            <a href="#" class="navbar-link" data-nav-link>Rent</a>
-          </li>
+<li>
+  <a href="#" class="navbar-link" data-nav-link>About Us</a>
+</li>
 
-
-          <li>
-            <a href="#" class="navbar-link" data-nav-link>About Us</a>
-          </li>
+<li>
+  <a href="#" class="navbar-link" data-nav-link>Contact</a>
+</li>
 
 
 
         </ul>
       </nav>
 
-      <a href="#" class="btn btn-secondary">Contact Us</a>
+      <a href="#" class="btn btn-secondary">Book now</a>
 
       <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
         <ion-icon name="menu-outline" aria-hidden="true" class="menu-icon"></ion-icon>
@@ -101,91 +103,70 @@
             <div class="hero-content">
 
               <h1 class="h1 hero-title">
-      🧡 Find Your Next Home, Not Just a House
+  Your Home Away from Home
               </h1>
 
               <p class="hero-text">
- Whether you're buying, renting, or selling — we’re here to make the journey simple, personal, and stress-free
+Experience comfort, privacy, and warmth—perfect for business, leisure, or a peaceful getaway.
               </p>
 
             </div>
           </div>
+<div class="hero-form-wrapper">
+  <div class="form-tab">
 
-          <div class="hero-form-wrapper">
-            <div class="form-tab">
+    <button class="tab-btn active" data-tab-btn>Book a Room</button>
+    <button class="tab-btn" data-tab-btn>Room Rates</button>
+    <button class="tab-btn" data-tab-btn>Guest Policies</button>
 
-              <button class="tab-btn active" data-tab-btn>Buy</button>
-              <button class="tab-btn" data-tab-btn>Sell</button>
-              <button class="tab-btn" data-tab-btn>Rent</button>
+  </div>
 
-            </div>
+  <form action="" class="hero-form">
 
-            <form action="" class="hero-form">
+    <div class="input-wrapper">
+      <label for="search" class="input-label">Search Rooms: *</label>
+      <input type="search" name="search" id="search" placeholder="e.g. Deluxe Room, Single Room" required
+        class="input-field">
+      <ion-icon name="search-outline"></ion-icon>
+    </div>
 
-              <div class="input-wrapper">
+    <div class="input-wrapper">
+      <label for="category" class="input-label">Room Type:</label>
+      <select name="category" id="category" class="dropdown-list">
+        <option value="standard">Standard Room</option>
+        <option value="deluxe">Deluxe Room</option>
+        <option value="suite">Suite</option>
+        <option value="family">Family Room</option>
+      </select>
+    </div>
 
-                <label for="search" class="input-label">Search : *</label>
+    <div class="input-wrapper">
+      <label for="min-price" class="input-label">Min Price (₦):</label>
+      <select name="min-price" id="min-price" class="dropdown-list">
+        <option value="">Select Min</option>
+        <option value="10000">₦10,000</option>
+        <option value="15000">₦15,000</option>
+        <option value="20000">₦20,000</option>
+        <option value="25000">₦25,000</option>
+      </select>
+    </div>
 
-                <input type="search" name="search" id="search" placeholder="Search your home" required
-                  class="input-field">
+    <div class="input-wrapper">
+      <label for="max-price" class="input-label">Max Price (₦):</label>
+      <select name="max-price" id="max-price" class="dropdown-list">
+        <option value="">Select Max</option>
+        <option value="20000">₦20,000</option>
+        <option value="25000">₦25,000</option>
+        <option value="30000">₦30,000</option>
+        <option value="40000">₦40,000</option>
+      </select>
+    </div>
 
-                <ion-icon name="search-outline"></ion-icon>
+    <button type="submit" class="btn btn-primary">Check Availability</button>
 
-              </div>
+  </form>
+</div>
 
-              <div class="input-wrapper">
-                <label for="category" class="input-label">Select Categories:</label>
-
-                <select name="category" id="category" class="dropdown-list">
-
-                  <option value="house">House</option>
-                  <option value="apartment">Apartment</option>
-                  <option value="offices">Offices</option>
-                  <option value="townhome">Townhome</option>
-
-                </select>
-              </div>
-
-              <div class="input-wrapper">
-                <label for="min-price" class="input-label">Min Price :</label>
-
-                <select name="min-price" id="min-price" class="dropdown-list">
-
-                  <option value="min price">Min Price</option>
-                  <option value="500">500</option>
-                  <option value="1000">1000</option>
-                  <option value="2000">2000</option>
-                  <option value="3000">3000</option>
-                  <option value="4000">4000</option>
-                  <option value="5000">5000</option>
-                  <option value="6000">6000</option>
-
-                </select>
-              </div>
-
-              <div class="input-wrapper">
-                <label for="max-price" class="input-label">Max Price :</label>
-
-                <select name="max-price" id="max-price" class="dropdown-list">
-
-                  <option value="max price">Max Price</option>
-                  <option value="500">500</option>
-                  <option value="1000">1000</option>
-                  <option value="2000">2000</option>
-                  <option value="3000">3000</option>
-                  <option value="4000">4000</option>
-                  <option value="5000">5000</option>
-                  <option value="6000">6000</option>
-
-                </select>
-              </div>
-
-              <button type="submit" class="btn btn-primary">Search now</button>
-
-            </form>
-          </div>
-
-        </div>
       </section>
 
 
@@ -200,7 +181,7 @@
         <div class="container">
 
           <div class="about-banner img-holder" style="--width: 600; --height: 700;">
-            <img src="assets/images/Screenshot_20250728-162716~2.png" width="600" height="700" loading="lazy" alt="about banner"
+            <img src="assets/images/hero-bg.jpg" width="600" height="700" loading="lazy" alt="about banner"
               class="img-cover">
 
             <button class="play-btn" aria-label="play video">
@@ -210,14 +191,10 @@
 
           <div class="about-content">
 
-            <h2 class="h2 section-title">Efficiency. Transparency. Control.</h2>
+            <h2 class="h2 section-title">🛏️ Comfortable Stays</h2>
 
             <p class="section-text">
-              Hously developed a platform for the Real Estate marketplace that allows buyers and sellers to easily
-              execute a
-              transaction on their own. The platform drives efficiency, cost transparency and control into the hands of
-              the consumers.
-              Hously is Real Estate Redefined.
+    Designed to Make Your Stay Comfortable, Peaceful, and Memorable
             </p>
 
             <a href="#" class="btn btn-primary">Learn More</a>
@@ -238,7 +215,7 @@
       <section class="section service" aria-label="service">
         <div class="container">
 
-          <h2 class="h2 section-title">How It Works</h2>
+          <h2 class="h2 section-title">Our services</h2>
 
           <p class="section-text">
             A great plateform to buy, sell and rent your properties without any agent or commisions.
@@ -250,13 +227,13 @@
               <div class="service-card">
 
                 <div class="card-icon">
-                  <ion-icon name="home-outline"></ion-icon>
+                  <ion-icon name="home-outline" style="color: rgb(52, 46, 1);"></ion-icon>
                 </div>
 
-                <h3 class="h3 card-title">Evaluate Property</h3>
+                <h3 class="h3 card-title">🍳 Start Your Day Right</h3>
 
                 <p class="card-text">
-                  If the distribution of letters and 'words' is random, the reader will not be distracted from making.
+         Wake up to a delicious breakfast made fresh every morning. From hot local meals to continental options, we serve you a variety of tasty dishes to get your day going
                 </p>
 
               </div>
@@ -266,13 +243,13 @@
               <div class="service-card">
 
                 <div class="card-icon">
-                  <ion-icon name="briefcase-outline"></ion-icon>
+               <ion-icon name="home-outline" style="color: rgb(52, 46, 1);"></ion-icon>
                 </div>
 
-                <h3 class="h3 card-title">Meeting with Agent</h3>
+                <h3 class="h3 card-title">🧼 Cleanliness is Our Priority</h3>
 
                 <p class="card-text">
-                  If the distribution of letters and 'words' is random, the reader will not be distracted from making.
+   Your safety and comfort matter to us. Every room is thoroughly cleaned and sanitized before your arrival, and we maintain high hygiene standards across the property
                 </p>
 
               </div>
@@ -282,13 +259,13 @@
               <div class="service-card">
 
                 <div class="card-icon">
-                  <ion-icon name="key"></ion-icon>
+                  <ion-icon name="home-outline" style="color: rgb(52, 46, 1);"></ion-icon>
                 </div>
 
-                <h3 class="h3 card-title">Close the Deal</h3>
+                <h3 class="h3 card-title">📍 Perfect Location</h3>
 
                 <p class="card-text">
-                  If the distribution of letters and 'words' is random, the reader will not be distracted from making.
+      We're conveniently located at [Full Address or Area], just a short distance from:
                 </p>
 
               </div>
@@ -307,502 +284,381 @@
         - #PROPERTY
       -->
 
-      <section class="section property" aria-label="property">
-        <div class="container">
+<section class="section property" aria-label="rooms">
+  <div class="container">
 
-          <h2 class="h2 section-title">Featured Properties</h2>
+    <h2 class="h2 section-title">Featured Rooms</h2>
 
-          <p class="section-text">
-            A great plateform to buy, sell and rent your properties without any agent or commisions.
-          </p>
+    <p class="section-text">
+      Discover our handpicked guest rooms — spacious, clean, and designed to give you a relaxing stay at an affordable rate.
+    </p>
 
-          <ul class="property-list">
+    <ul class="property-list">
 
-            <li>
-              <div class="property-card">
+      <li>
+        <div class="property-card">
 
-                <figure class="card-banner img-holder" style="--width: 800; --height: 533;">
-                  <img src="./assets/images/property-1.jpg" width="800" height="533" loading="lazy"
-                    alt="10765 Hillshire Ave, Baton Rouge, LA 70810, USA" class="img-cover">
-                </figure>
+          <figure class="card-banner img-holder" style="--width: 800; --height: 533;">
+            <img src="assets/images/Screenshot_20250728-154433~2.png" width="800" height="533" loading="lazy"
+              alt="Deluxe Room - 50 Ifelodin Street, Ipaja, Lagos" class="img-cover">
+          </figure>
 
-                <button class="card-action-btn" aria-label="add to favourite">
-                  <ion-icon name="heart" aria-hidden="true"></ion-icon>
-                </button>
+          <button class="card-action-btn" aria-label="add to favourite">
+            <ion-icon name="heart" aria-hidden="true"></ion-icon>
+          </button>
 
-                <div class="card-content">
+          <div class="card-content">
 
-                  <h3 class="h3">
-                    <a href="#" class="card-title">  50 Ifelodin street
-              Ipaja,Lagos</a>
-                  </h3>
+            <h3 class="h3">
+              <a href="#" class="card-title">Deluxe Room – 50 Ifelodin Street, Ipaja</a>
+            </h3>
 
-                  <ul class="card-list">
+            <ul class="card-list">
 
-                    <li class="card-item">
-                      <div class="item-icon">
-                        <ion-icon name="cube-outline"></ion-icon>
-                      </div>
-
-                      <span class="item-text">8000sqf</span>
-                    </li>
-
-                    <li class="card-item">
-                      <div class="item-icon">
-                        <ion-icon name="bed-outline"></ion-icon>
-                      </div>
-
-                      <span class="item-text">4 Beds</span>
-                    </li>
-
-                    <li class="card-item">
-                      <div class="item-icon">
-                        <ion-icon name="man-outline"></ion-icon>
-                      </div>
-
-                      <span class="item-text">4 Baths</span>
-                    </li>
-
-                  </ul>
-
-                  <div class="card-meta">
-
-                    <div>
-                      <span class="meta-title">Price</span>
-
-                      <span class="meta-text">$5000</span>
-                    </div>
-
-                    <div>
-                      <span class="meta-title">Rating</span>
-
-                      <span class="meta-text">
-
-                        <div class="rating-wrapper">
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                        </div>
-
-                        <span>5.0(30)</span>
-
-                      </span>
-                    </div>
-
-                  </div>
-
+              <li class="card-item">
+                <div class="item-icon">
+                  <ion-icon name="bed-outline"></ion-icon>
                 </div>
+                <span class="item-text">1 Queen Bed</span>
+              </li>
 
-              </div>
-            </li>
-
-            <li>
-              <div class="property-card">
-
-                <figure class="card-banner img-holder" style="--width: 800; --height: 533;">
-                  <img src="assets/images/Screenshot_20250728-154428~2.png" width="800" height="533" loading="lazy"
-                    alt="59345 STONEWALL DR, Plaquemine, LA 70764, USA" class="img-cover">
-                </figure>
-
-                <button class="card-action-btn" aria-label="add to favourite">
-                  <ion-icon name="heart" aria-hidden="true"></ion-icon>
-                </button>
-
-                <div class="card-content">
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">  50 Ifelodin street
-              Ipaja,Lagos</a>
-                  </h3>
-
-                  <ul class="card-list">
-
-                    <li class="card-item">
-                      <div class="item-icon">
-                        <ion-icon name="cube-outline"></ion-icon>
-                      </div>
-
-                      <span class="item-text">8000sqf</span>
-                    </li>
-
-                    <li class="card-item">
-                      <div class="item-icon">
-                        <ion-icon name="bed-outline"></ion-icon>
-                      </div>
-
-                      <span class="item-text">4 Beds</span>
-                    </li>
-
-                    <li class="card-item">
-                      <div class="item-icon">
-                        <ion-icon name="man-outline"></ion-icon>
-                      </div>
-
-                      <span class="item-text">4 Baths</span>
-                    </li>
-
-                  </ul>
-
-                  <div class="card-meta">
-
-                    <div>
-                      <span class="meta-title">Price</span>
-
-                      <span class="meta-text">$5000</span>
-                    </div>
-
-                    <div>
-                      <span class="meta-title">Rating</span>
-
-                      <span class="meta-text">
-
-                        <div class="rating-wrapper">
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                        </div>
-
-                        <span>5.0(30)</span>
-
-                      </span>
-                    </div>
-
-                  </div>
-
+              <li class="card-item">
+                <div class="item-icon">
+                  <ion-icon name="wifi-outline"></ion-icon>
                 </div>
+                <span class="item-text">Free Wi-Fi</span>
+              </li>
 
-              </div>
-            </li>
-
-            <li>
-              <div class="property-card">
-
-                <figure class="card-banner img-holder" style="--width: 800; --height: 533;">
-                  <img src="assets/images/Screenshot_20250728-154433~2.png" width="800" height="533" loading="lazy"
-                    alt="3723 SANDBAR DR, Addis, LA 70710, USA" class="img-cover">
-                </figure>
-
-                <button class="card-action-btn" aria-label="add to favourite">
-                  <ion-icon name="heart" aria-hidden="true"></ion-icon>
-                </button>
-
-                <div class="card-content">
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">  50 Ifelodin street
-              Ipaja,Lagos</a>
-                  </h3>
-
-                  <ul class="card-list">
-
-                    <li class="card-item">
-                      <div class="item-icon">
-                        <ion-icon name="cube-outline"></ion-icon>
-                      </div>
-
-                      <span class="item-text">8000sqf</span>
-                    </li>
-
-                    <li class="card-item">
-                      <div class="item-icon">
-                        <ion-icon name="bed-outline"></ion-icon>
-                      </div>
-
-                      <span class="item-text">4 Beds</span>
-                    </li>
-
-                    <li class="card-item">
-                      <div class="item-icon">
-                        <ion-icon name="man-outline"></ion-icon>
-                      </div>
-
-                      <span class="item-text">4 Baths</span>
-                    </li>
-
-                  </ul>
-
-                  <div class="card-meta">
-
-                    <div>
-                      <span class="meta-title">Price</span>
-
-                      <span class="meta-text">$5000</span>
-                    </div>
-
-                    <div>
-                      <span class="meta-title">Rating</span>
-
-                      <span class="meta-text">
-
-                        <div class="rating-wrapper">
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                        </div>
-
-                        <span>5.0(30)</span>
-
-                      </span>
-                    </div>
-
-                  </div>
-
+              <li class="card-item">
+                <div class="item-icon">
+                  <ion-icon name="snow-outline"></ion-icon>
                 </div>
+                <span class="item-text">Air Conditioned</span>
+              </li>
 
+            </ul>
+
+            <div class="card-meta">
+
+              <div>
+                <span class="meta-title">Price/Night</span>
+                <span class="meta-text">₦20,000</span>
               </div>
-            </li>
 
-            <li>
-              <div class="property-card">
-
-                <figure class="card-banner img-holder" style="--width: 800; --height: 533;">
-                  <img src="assets/images/Screenshot_20250728-154437~2.png" width="800" height="533" loading="lazy"
-                    alt="LOT 21 ROYAL OAK DR, Prairieville, LA 70769, USA" class="img-cover">
-                </figure>
-
-                <button class="card-action-btn" aria-label="add to favourite">
-                  <ion-icon name="heart" aria-hidden="true"></ion-icon>
-                </button>
-
-                <div class="card-content">
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">  50 Ifelodin street
-              Ipaja,Lagos</a>
-                  </h3>
-
-                  <ul class="card-list">
-
-                    <li class="card-item">
-                      <div class="item-icon">
-                        <ion-icon name="cube-outline"></ion-icon>
-                      </div>
-
-                      <span class="item-text">8000sqf</span>
-                    </li>
-
-                    <li class="card-item">
-                      <div class="item-icon">
-                        <ion-icon name="bed-outline"></ion-icon>
-                      </div>
-
-                      <span class="item-text">4 Beds</span>
-                    </li>
-
-                    <li class="card-item">
-                      <div class="item-icon">
-                        <ion-icon name="man-outline"></ion-icon>
-                      </div>
-
-                      <span class="item-text">4 Baths</span>
-                    </li>
-
-                  </ul>
-
-                  <div class="card-meta">
-
-                    <div>
-                      <span class="meta-title">Price</span>
-
-                      <span class="meta-text">$5000</span>
-                    </div>
-
-                    <div>
-                      <span class="meta-title">Rating</span>
-
-                      <span class="meta-text">
-
-                        <div class="rating-wrapper">
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                        </div>
-
-                        <span>5.0(30)</span>
-
-                      </span>
-                    </div>
-
+              <div>
+                <span class="meta-title">Rating</span>
+                <span class="meta-text">
+                  <div class="rating-wrapper">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
                   </div>
-
-                </div>
-
+                  <span>5.0 (30)</span>
+                </span>
               </div>
-            </li>
 
-            <li>
-              <div class="property-card">
+            </div>
 
-                <figure class="card-banner img-holder" style="--width: 800; --height: 533;">
-                  <img src="./assets/images/Screenshot_20250728-154433~2.png" width="800" height="533" loading="lazy"
-                    alt="710 BOYD DR, Unit #1102, Baton Rouge, LA 70808, USA" class="img-cover">
-                </figure>
-
-                <button class="card-action-btn" aria-label="add to favourite">
-                  <ion-icon name="heart" aria-hidden="true"></ion-icon>
-                </button>
-
-                <div class="card-content">
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">  50 Ifelodin street
-              Ipaja,Lagos</a>
-                  </h3>
-
-                  <ul class="card-list">
-
-                    <li class="card-item">
-                      <div class="item-icon">
-                        <ion-icon name="cube-outline"></ion-icon>
-                      </div>
-
-                      <span class="item-text">8000sqf</span>
-                    </li>
-
-                    <li class="card-item">
-                      <div class="item-icon">
-                        <ion-icon name="bed-outline"></ion-icon>
-                      </div>
-
-                      <span class="item-text">4 Beds</span>
-                    </li>
-
-                    <li class="card-item">
-                      <div class="item-icon">
-                        <ion-icon name="man-outline"></ion-icon>
-                      </div>
-
-                      <span class="item-text">4 Baths</span>
-                    </li>
-
-                  </ul>
-
-                  <div class="card-meta">
-
-                    <div>
-                      <span class="meta-title">Price</span>
-
-                      <span class="meta-text">$5000</span>
-                    </div>
-
-                    <div>
-                      <span class="meta-title">Rating</span>
-
-                      <span class="meta-text">
-
-                        <div class="rating-wrapper">
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                        </div>
-
-                        <span>5.0(30)</span>
-
-                      </span>
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="property-card">
-
-                <figure class="card-banner img-holder" style="--width: 800; --height: 533;">
-                  <img src="assets/images/Screenshot_20250728-154447~2.png" width="800" height="533" loading="lazy"
-                    alt="5133 MCLAIN WAY, Baton Rouge, LA 70809, USA" class="img-cover">
-                </figure>
-
-                <button class="card-action-btn" aria-label="add to favourite">
-                  <ion-icon name="heart" aria-hidden="true"></ion-icon>
-                </button>
-
-                <div class="card-content">
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">  50 Ifelodin street
-              Ipaja,Lagos</a>
-                  </h3>
-
-                  <ul class="card-list">
-
-                    <li class="card-item">
-                      <div class="item-icon">
-                        <ion-icon name="cube-outline"></ion-icon>
-                      </div>
-
-                      <span class="item-text">8000sqf</span>
-                    </li>
-
-                    <li class="card-item">
-                      <div class="item-icon">
-                        <ion-icon name="bed-outline"></ion-icon>
-                      </div>
-
-                      <span class="item-text">4 Beds</span>
-                    </li>
-
-                    <li class="card-item">
-                      <div class="item-icon">
-                        <ion-icon name="man-outline"></ion-icon>
-                      </div>
-
-                      <span class="item-text">4 Baths</span>
-                    </li>
-
-                  </ul>
-
-                  <div class="card-meta">
-
-                    <div>
-                      <span class="meta-title">Price</span>
-
-                      <span class="meta-text">$5000</span>
-                    </div>
-
-                    <div>
-                      <span class="meta-title">Rating</span>
-
-                      <span class="meta-text">
-
-                        <div class="rating-wrapper">
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                        </div>
-
-                        <span>5.0(30)</span>
-
-                      </span>
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
+          </div>
 
         </div>
-      </section>
+      </li>
 
+
+      <li>
+        <div class="property-card">
+
+          <figure class="card-banner img-holder" style="--width: 800; --height: 533;">
+            <img src="assets/images/Screenshot_20250728-154428~2.png" width="800" height="533" loading="lazy"
+              alt="Deluxe Room - 50 Ifelodin Street, Ipaja, Lagos" class="img-cover">
+          </figure>
+
+          <button class="card-action-btn" aria-label="add to favourite">
+            <ion-icon name="heart" aria-hidden="true"></ion-icon>
+          </button>
+
+          <div class="card-content">
+
+            <h3 class="h3">
+              <a href="#" class="card-title">Deluxe Room – 50 Ifelodin Street, Ipaja</a>
+            </h3>
+
+            <ul class="card-list">
+
+              <li class="card-item">
+                <div class="item-icon">
+                  <ion-icon name="bed-outline"></ion-icon>
+                </div>
+                <span class="item-text">1 Queen Bed</span>
+              </li>
+
+              <li class="card-item">
+                <div class="item-icon">
+                  <ion-icon name="wifi-outline"></ion-icon>
+                </div>
+                <span class="item-text">Free Wi-Fi</span>
+              </li>
+
+              <li class="card-item">
+                <div class="item-icon">
+                  <ion-icon name="snow-outline"></ion-icon>
+                </div>
+                <span class="item-text">Air Conditioned</span>
+              </li>
+
+            </ul>
+
+            <div class="card-meta">
+
+              <div>
+                <span class="meta-title">Price/Night</span>
+                <span class="meta-text">₦20,000</span>
+              </div>
+
+              <div>
+                <span class="meta-title">Rating</span>
+                <span class="meta-text">
+                  <div class="rating-wrapper">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                  <span>5.0 (30)</span>
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </li>
+
+
+      <li>
+        <div class="property-card">
+
+          <figure class="card-banner img-holder" style="--width: 800; --height: 533;">
+            <img src="assets/images/Screenshot_20250728-162716~2.png" width="800" height="533" loading="lazy"
+              alt="Deluxe Room - 50 Ifelodin Street, Ipaja, Lagos" class="img-cover">
+          </figure>
+
+          <button class="card-action-btn" aria-label="add to favourite">
+            <ion-icon name="heart" aria-hidden="true"></ion-icon>
+          </button>
+
+          <div class="card-content">
+
+            <h3 class="h3">
+              <a href="#" class="card-title">Deluxe Room – 50 Ifelodin Street, Ipaja</a>
+            </h3>
+
+            <ul class="card-list">
+
+              <li class="card-item">
+                <div class="item-icon">
+                  <ion-icon name="bed-outline"></ion-icon>
+                </div>
+                <span class="item-text">1 Queen Bed</span>
+              </li>
+
+              <li class="card-item">
+                <div class="item-icon">
+                  <ion-icon name="wifi-outline"></ion-icon>
+                </div>
+                <span class="item-text">Free Wi-Fi</span>
+              </li>
+
+              <li class="card-item">
+                <div class="item-icon">
+                  <ion-icon name="snow-outline"></ion-icon>
+                </div>
+                <span class="item-text">Air Conditioned</span>
+              </li>
+
+            </ul>
+
+            <div class="card-meta">
+
+              <div>
+                <span class="meta-title">Price/Night</span>
+                <span class="meta-text">₦20,000</span>
+              </div>
+
+              <div>
+                <span class="meta-title">Rating</span>
+                <span class="meta-text">
+                  <div class="rating-wrapper">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                  <span>5.0 (30)</span>
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </li>
+
+      <li>
+        <div class="property-card">
+
+          <figure class="card-banner img-holder" style="--width: 800; --height: 533;">
+            <img src="assets/images/Screenshot_20250728-154447~2.png" width="800" height="533" loading="lazy"
+              alt="Deluxe Room - 50 Ifelodin Street, Ipaja, Lagos" class="img-cover">
+          </figure>
+
+          <button class="card-action-btn" aria-label="add to favourite">
+            <ion-icon name="heart" aria-hidden="true"></ion-icon>
+          </button>
+
+          <div class="card-content">
+
+            <h3 class="h3">
+              <a href="#" class="card-title">Deluxe Room – 50 Ifelodin Street, Ipaja</a>
+            </h3>
+
+            <ul class="card-list">
+
+              <li class="card-item">
+                <div class="item-icon">
+                  <ion-icon name="bed-outline"></ion-icon>
+                </div>
+                <span class="item-text">1 Queen Bed</span>
+              </li>
+
+              <li class="card-item">
+                <div class="item-icon">
+                  <ion-icon name="wifi-outline"></ion-icon>
+                </div>
+                <span class="item-text">Free Wi-Fi</span>
+              </li>
+
+              <li class="card-item">
+                <div class="item-icon">
+                  <ion-icon name="snow-outline"></ion-icon>
+                </div>
+                <span class="item-text">Air Conditioned</span>
+              </li>
+
+            </ul>
+
+            <div class="card-meta">
+
+              <div>
+                <span class="meta-title">Price/Night</span>
+                <span class="meta-text">₦20,000</span>
+              </div>
+
+              <div>
+                <span class="meta-title">Rating</span>
+                <span class="meta-text">
+                  <div class="rating-wrapper">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                  <span>5.0 (30)</span>
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </li>
+
+      <li>
+        <div class="property-card">
+
+          <figure class="card-banner img-holder" style="--width: 800; --height: 533;">
+            <img src="assets/images/Screenshot_20250728-154437~2.png" width="800" height="533" loading="lazy"
+              alt="Deluxe Room - 50 Ifelodin Street, Ipaja, Lagos" class="img-cover">
+          </figure>
+
+          <button class="card-action-btn" aria-label="add to favourite">
+            <ion-icon name="heart" aria-hidden="true"></ion-icon>
+          </button>
+
+          <div class="card-content">
+
+            <h3 class="h3">
+              <a href="#" class="card-title">Deluxe Room – 50 Ifelodin Street, Ipaja</a>
+            </h3>
+
+            <ul class="card-list">
+
+              <li class="card-item">
+                <div class="item-icon">
+                  <ion-icon name="bed-outline"></ion-icon>
+                </div>
+                <span class="item-text">1 Queen Bed</span>
+              </li>
+
+              <li class="card-item">
+                <div class="item-icon">
+                  <ion-icon name="wifi-outline"></ion-icon>
+                </div>
+                <span class="item-text">Free Wi-Fi</span>
+              </li>
+
+              <li class="card-item">
+                <div class="item-icon">
+                  <ion-icon name="snow-outline"></ion-icon>
+                </div>
+                <span class="item-text">Air Conditioned</span>
+              </li>
+
+            </ul>
+
+            <div class="card-meta">
+
+              <div>
+                <span class="meta-title">Price/Night</span>
+                <span class="meta-text">₦20,000</span>
+              </div>
+
+              <div>
+                <span class="meta-title">Rating</span>
+                <span class="meta-text">
+                  <div class="rating-wrapper">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                  <span>5.0 (30)</span>
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </li>
+
+
+      <!-- Duplicate and modify above <li> as needed for more rooms -->
+
+    </ul>
+
+  </div>
+</section>
 
 
 
