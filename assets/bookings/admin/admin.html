@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Admin Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f2f5;
+    }
+
+    header {
+      background: #003366;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .container {
+      padding: 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+
+    table thead {
+      background: #003366;
+      color: white;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    td button {
+      padding: 6px 10px;
+      border: none;
+      background: #28a745;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    td button.reject {
+      background: #dc3545;
+    }
+
+    td button:hover {
+      opacity: 0.9;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        font-size: 1.2rem;
+      }
+
+      th, td {
+        font-size: 14px;
+      }
+
+      td button {
+        padding: 4px 8px;
+        font-size: 12px;
+      }
+    }
+
+    /* @media (max-width: 480px) {
+      .container {
+        padding: 0.5rem;
+      }
+
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      td {
+        padding: 10px;
+        text-align: right;
+        position: relative;
+      }
+
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 50%;
+        padding-right: 10px;
+        font-weight: bold;
+        text-align: left;
+      }
+    } */
+h1 {
+      margin-bottom: 20px;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    #loginForm {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    #loginForm h2 {
+      margin-bottom: 20px;
+      font-size: 1.6rem;
+      color: #fff;
+    }
+
+    #loginForm input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: black;
+      font-size: 1rem;
+    }
+
+    #loginForm input::placeholder {
+      color: rgb(81, 78, 78)
+    }
+
+    #loginForm button {
+      width: 100%;
+      padding: 12px;
+      background: orange;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+
+    #loginForm button:hover {
+      transform: scale(1.03);
+      opacity: 0.9;
+    }
+
+    #loginError {
+      margin-top: 10px;
+      color: #ffbaba;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      #loginForm {
+        padding: 20px;
+      }
+    }
+
+    .status-paid {
+  color: white;
+  background: green;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.status-approved {
+  color: white;
+  background: orange;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.status-rejected {
+  color: white;
+  background: red;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.status-pending {
+  color: black;
+  background: #ccc;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+
+@media (max-width: 480px) {
+  #loginForm {
+    padding: 20px;
+  }
+
+  input,
+  button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}
+    
+  </style>
+</head>
+<body>
+  <h1>Admin Dashboard</h1>
+
+  <div id="loginForm">
+    <h2 style="color: black;">Admin Login</h2>
+    <input type="text" id="username" placeholder="Username" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button onclick="login()">Login</button>
+    <p id="loginError" style="color: red;"></p>
+  </div>
+
+  <div id="dashboard" style="display: none;">
+    <h2>Guest Bookings</h2>
+    <button onclick="logout()" style="float: right; background: #dc3545;">Logout</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Adults</th>
+          <th>Children</th>
+          <th>Room Type</th>
+          <th>Dates</th>
+          <th>Status / Action</th>
+        </tr>
+      </thead>
+      <tbody id="bookingList"></tbody>
+    </table>
+  </div>
+<script>
+  async function login() {
+    const user = document.getElementById("username").value.trim();
+    const pass = document.getElementById("password").value.trim();
+    const error = document.getElementById("loginError");
+
+    try {
+      const res = await fetch("https://bookings-pied.vercel.app/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username: user, password: pass }),
+      });
+
+      const data = await res.json();
+
+      if (data.authenticated) {
+        error.textContent = "";
+        document.getElementById("loginForm").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+        loadBookings();
+      } else {
+        error.textContent = "Invalid login.";
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      error.textContent = "Server error. Please try again.";
+    }
+  }
+
+  function logout() {
+    location.reload();
+  }
+
+  async function loadBookings() {
+    try {
+      const res = await fetch("https://bookings-pied.vercel.app/api/getBookings");
+      const bookings = await res.json();
+
+      const list = document.getElementById("bookingList");
+      list.innerHTML = "";
+
+      bookings.forEach((b) => {
+        const checkIn = b.checkIn ? formatDate(b.checkIn) : "N/A";
+        const checkOut = b.checkOut ? formatDate(b.checkOut) : "N/A";
+        const dateRange = `${checkIn} to ${checkOut}`;
+
+        let statusText = "";
+        let statusClass = "status-pending";
+
+if (b.status === "paid" || (b.status === "accepted" && b.paymentStatus === "paid")) {
+  statusText = "Paid";
+  statusClass = "status-paid";
+} else if (b.status === "accepted") {
+  statusText = "Accepted";
+  statusClass = "status-approved";
+} else if (b.status === "disapproved") {
+  statusText = "Disapproved";
+  statusClass = "status-rejected";
+} else if (b.status === "logged out") {
+  statusText = "Logged Out";
+  statusClass = "status-pending";
+} else {
+  statusText = "Pending";
+  statusClass = "status-pending";
+}
+
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${b.name || ""}</td>
+          <td>${b.email || ""}</td>
+          <td>${b.adults || 0}</td>
+          <td>${b.kids || 0}</td>
+          <td>${b.roomType || ""}</td>
+          <td>${dateRange}</td>
+          <td>
+            <div class="${statusClass}">${statusText}</div>
+            ${b.status !== 'accepted' ? 
+              `<button onclick="approveBooking('${b._id}', '${b.email}', '${b.name}', '${b.checkIn}', '${b.checkOut}', '${b.roomType}')">Approve</button>` 
+              : ""}
+        ${(b.status === "accepted" && b.paymentStatus !== "paid") || b.status === "pending"
+  ? `<button onclick="markAsPaid('${b._id}', '${b.email}', '${b.name}', '${b.roomType}')">Mark as Paid</button>`
+  : ""}
+<button onclick="disapproveBooking('${b._id}')">Disapprove</button>
+
+<button onclick="logoutBooking('${b._id}')">Logged Out</button>
+
+          </td>
+        `;
+        list.appendChild(row);
+      });
+    } catch (err) {
+      console.error("Error fetching bookings:", err);
+      alert("Error loading bookings.");
+    }
+  }
+
+  function formatDate(dateStr) {
+    if (!dateStr) return "N/A";
+    const date = new Date(dateStr);
+    if (isNaN(date.getTime())) return "N/A";
+
+    return date.toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric"
+    });
+  }
+
+  async function updateStatus(id, status) {
+    try {
+      const res = await fetch("https://bookings-pied.vercel.app/api/updateStatus", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ id, status })
+      });
+
+      if (!res.ok) throw new Error("Status update failed");
+      await loadBookings();
+    } catch (err) {
+      console.error("Status update failed:", err);
+      alert("Status update failed.");
+    }
+  }
+
+  async function approveBooking(id, email, name, checkIn, checkOut, roomType) {
+    try {
+      const res = await fetch("https://bookings-pied.vercel.app/api/approveBooking", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          id,
+          email,
+          name,
+          checkIn,
+          checkOut,
+          roomType
+        })
+      });
+
+      const result = await res.json();
+      if (res.ok) {
+        alert("Booking approved and email sent.");
+        await loadBookings();
+      } else {
+        console.error("Approval failed:", result.message);
+        alert("Approval failed: " + result.message);
+      }
+    } catch (err) {
+      console.error("Error approving booking:", err);
+      alert("Error approving booking.");
+    }
+  }
+
+  async function markAsPaid(id, email, name, roomType) {
+    try {
+      const response = await fetch('https://bookings-pied.vercel.app/api/markPaid', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id, email, name, roomType })
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert('Marked as paid and email sent successfully.');
+        await loadBookings();
+      } else {
+        alert('Failed to mark as paid: ' + result.message);
+      }
+    } catch (error) {
+      console.error('Error marking as paid:', error);
+      alert('Error: Could not connect to server.');
+    }
+  }
+
+ async function disapproveBooking(id) {
+  try {
+    const res = await fetch("https://bookings-pied.vercel.app/api/disapproveBooking", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ id })
+    });
+
+    const result = await res.json();
+
+    if (!res.ok) {
+      alert("Disapproval failed: " + result.message);
+      return;
+    }
+
+    alert("Booking disapproved successfully.");
+    await loadBookings();
+  } catch (err) {
+    console.error("Disapprove failed:", err);
+    alert("Disapprove failed.");
+  }
+}
+
+async function logoutBooking(id) {
+  try {
+    const res = await fetch("https://bookings-pied.vercel.app/api/logoutBooking", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ id })
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      alert("Guest successfully logged out. Email sent.");
+      await loadBookings();
+    } else {
+      alert("Failed to log out: " + data.message);
+    }
+  } catch (err) {
+    console.error("Logout booking error:", err);
+    alert("Error logging out guest.");
+  }
+}
+
+
+</script>
+
+</body>
+</html>
