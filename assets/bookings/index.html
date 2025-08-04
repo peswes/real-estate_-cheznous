@@ -268,21 +268,30 @@
     checkoutInput.min = checkinDate;
   });
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
 
-    const formData = new FormData(form);
-    const booking = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
-      checkIn: formData.get("checkin"),
-      checkOut: formData.get("checkout"),
-      roomType: formData.get("roomType"),
-      adults: parseInt(formData.get("adults")) || 0,
-      kids: parseInt(formData.get("kids")) || 0,
-      message: formData.get("message") || ""
-    };
+  // Guest limit check
+  if (!validateGuestLimit()) {
+    alert("❌ Total guests (adults + children) must not exceed 4.");
+    return;
+  }
+
+  const formData = new FormData(form);
+  const booking = {
+    name: formData.get("name"),
+    email: formData.get("email"),
+    phone: formData.get("phone"),
+    checkIn: formData.get("checkin"),
+    checkOut: formData.get("checkout"),
+    roomType: formData.get("roomType"),
+    adults: parseInt(formData.get("adults")) || 0,
+    kids: parseInt(formData.get("kids")) || 0,
+    message: formData.get("message") || ""
+  };
+
+
+
 
     try {
       const res = await fetch('https://bookings-pied.vercel.app/api/book', {
