@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ChezNous Chezvous</title>
+  <link rel="stylesheet" href="../css/style.css">
+    <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #fff;
+      color: #333;
+    }
+
+    .apartment-info {
+      padding: 2rem;
+      background: white;
+    }
+
+    .slider {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      background-color: #f0f0f0;
+      cursor: pointer;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .slide img {
+      width: 100%;
+      height: auto;
+      max-height: 600px;
+      object-fit: contain;
+      background-color: #f0f0f0;
+      cursor: pointer;
+    }
+
+    .details {
+      margin-top: 1rem;
+    }
+
+    .details h2 {
+      color: orange;
+      margin-top: 0;
+    }
+
+    .features {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .feature-box {
+      background: #fff7ed;
+      padding: 1rem;
+      border-left: 4px solid orange;
+      border-radius: 8px;
+    }
+
+    .book-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background: orange;
+      color: white;
+      padding: 0.8rem 2rem;
+      border: none;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .book-btn:hover {
+      background: #e38c00;
+    }
+
+    .house-rules {
+      background: #fff9f0;
+      padding: 2rem;
+      margin-top: 2rem;
+      border-top: 3px solid orange;
+    }
+
+    .house-rules h2 {
+      color: orange;
+      margin-bottom: 1rem;
+    }
+
+    .house-rules h3 {
+      margin-top: 1.5rem;
+      color: #333;
+    }
+
+    .house-rules ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+    }
+
+    .reviews {
+      padding: 2rem;
+      background: #fff;
+    }
+
+    #reviewList {
+      margin-bottom: 1.5rem;
+    }
+
+    .review-item {
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    form button {
+      padding: 0.7rem 2rem;
+      border: none;
+      background: orange;
+      color: white;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+
+
+    /* Lightbox Styles */
+    #lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    #lightbox .nav {
+      position: absolute;
+      top: 50%;
+      font-size: 3rem;
+      color: white;
+      cursor: pointer;
+      padding: 1rem;
+      user-select: none;
+    }
+
+    #lightbox .prev { left: 30px; }
+    #lightbox .next { right: 30px; }
+    
+#lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2.5rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.2rem 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 10000;
+  transition: background 0.3s ease;
+}
+
+#lightbox .close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+  </style>
+</head>
+<body>
+
+               <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo" style="font-size: 16px;">
+        <ion-icon name="business-outline" style="color: orange;"></ion-icon> ChezNous 
+      </a>
+
+      <nav class="navbar container" data-navbar>
+        <ul class="navbar-list">
+
+ <li>
+  <a href="" class="navbar-link" data-nav-link>Home</a>
+</li>
+
+<li>
+  <a href="#" class="navbar-link" data-nav-link>Rooms</a>
+</li>
+
+<li>
+  <a href="./assets/bookings/index.html" class="navbar-link" data-nav-link>Book Now</a>
+</li>
+
+<li>
+  <a href="#" class="navbar-link" data-nav-link>Services</a>
+</li>
+
+<li>
+  <a href="#" class="navbar-link" data-nav-link>About Us</a>
+</li>
+
+<li>
+  <a href="./assets/contact.html" class="navbar-link" data-nav-link>Contact</a>
+</li>
+
+
+
+        </ul>
+      </nav>
+
+      <a href="./assets/bookings/index.html" class="btn btn-secondary">Book now</a>
+
+      <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true" class="menu-icon"></ion-icon>
+        <ion-icon name="close-outline" aria-hidden="true" class="close-icon"></ion-icon>
+      </button>
+
+    </div>
+  </header>
+
+
+
+  <section class="apartment-info" style="padding-top: 100px;">
+    <div class="slider" id="slider">
+      <div class="slides" id="slides">
+        <div class="slide"><img src="../images/Screenshot_20250728-154428~2.png" alt="Apartment 1" /></div>
+        <div class="slide"><img src="../images/Screenshot_20250728-154437~2.png" alt="Apartment 2" /></div>
+        <div class="slide"><img src="../images/Screenshot_20250728-162716~2.png" alt="Apartment 3" /></div>
+      </div>
+    </div>
+
+    <div class="details">
+      <p><strong>Location:</strong> Omoniyi Estate, Akure, Nigeria</p>
+
+      <div class="features">
+        <div class="feature-box"><strong>✓</strong> Spacious Bedroom</div>
+        <div class="feature-box"><strong>✓</strong> Ensuite Bathroom</div>
+        <div class="feature-box"><strong>✓</strong> Fully Equipped Kitchen</div>
+        <div class="feature-box"><strong>✓</strong> Smart TV & Netflix</div>
+        <div class="feature-box"><strong>✓</strong> High-Speed Wi-Fi</div>
+        <div class="feature-box"><strong>✓</strong> 24/7 Security & CCTV</div>
+        <div class="feature-box"><strong>✓</strong> Private Parking</div>
+        <div class="feature-box"><strong>✓</strong> Air Conditioning</div>
+      </div>
+
+      <a href="#" class="book-btn">Book Now</a>
+    </div>
+  </section>
+
+  <section class="house-rules">
+    <h2>House Rules & Guidelines</h2>
+
+    <h3>CHECK IN AND CHECK OUT</h3>
+    <ul>
+      <li>Check-in: from 14:00</li>
+      <li>Check-out: before 12:00pm</li>
+      <li>Keys received from manager or host upon arrival, and returned upon departure</li>
+    </ul>
+
+    <h3>DURING YOUR STAY</h3>
+    <ul>
+      <li>Maximum 4 guests for the mini flat, 6 for 2-bedroom flat</li>
+      <li>Additional guests must be discussed and approved by the host</li>
+      <li>No pets allowed</li>
+      <li>No smoking inside</li>
+      <li>No parties or events unless approved by host</li>
+    </ul>
+
+    <h3>ADDITIONAL RULES / COMMENTS</h3>
+    <ul>
+      <li>Proof of ID required before arrival</li>
+      <li>Max 2 cars per unit inside the property</li>
+      <li>Smoking is only allowed in the designated smoking area</li>
+      <li>Guests are responsible for the care of the flat and furniture</li>
+      <li>Any damage may result in loss of deposit and legal proceedings</li>
+      <li>Please be mindful of the neighbourhood, especially regarding music volume</li>
+    </ul>
+
+    <p><strong>Our apartments are designed to make you feel comfortable and safe at home.<br>
+    We hope you enjoy your stay at Chez Nous Chez Vous Apartments. Do not hesitate to contact us if you need anything!</strong></p>
+  </section>
+
+  <section class="reviews">
+    <h2 style="color: orange;">Customer Reviews</h2>
+    <div id="reviewList">Loading reviews...</div>
+
+    <h3>Leave a Review</h3>
+    <form id="reviewForm">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <textarea id="message" placeholder="Your Review" required></textarea>
+      <button type="submit">Submit Review</button>
+    </form>
+  </section>
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer" style="padding-top: 20px;">
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <ion-icon name="business-outline" style="color: orange;"></ion-icon> Cheznous
+          </a>
+
+          <p class="footer-text">
+            A great plateform to buy, sell and rent your properties without any agent or commisions.
+          </p>
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Company</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward"></ion-icon>
+
+              <span class="span">About us</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward"></ion-icon>
+
+              <span class="span">Services</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward"></ion-icon>
+
+              <span class="span">Pricing</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward"></ion-icon>
+
+              <span class="span">Blog</span>
+            </a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Useful Links</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward"></ion-icon>
+
+              <span class="span">Terms of Services</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward"></ion-icon>
+
+              <span class="span">Privacy Policy</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward"></ion-icon>
+
+              <span class="span">Listing</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward"></ion-icon>
+
+              <span class="span">Contact</span>
+            </a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Contact Details</p>
+          </li>
+
+          <li class="footer-item">
+            <ion-icon name="location-outline"></ion-icon>
+
+            <address class="address">
+              
+              50 Ifelodin street
+              Ipaja,Lagos
+              <a href="#" class="address-link">View on Google map</a>
+            </address>
+          </li>
+
+          <li class="footer-item">
+            <ion-icon name="mail-outline"></ion-icon>
+
+            <a href="mailto:contact@example.com" class="footer-link">contact@example.com</a>
+          </li>
+
+          <li class="footer-item">
+            <ion-icon name="call-outline"></ion-icon>
+
+            <a href="tel:+152534468854" class="footer-link">+152 534-468-854</a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2025  Chez Nous Chez Vous. All Right Reserved by <a href="#" class="copyright-link">C</a>.
+        </p>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.instagram.com/cheznouschezvouslagos/?hl=en" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <!-- <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li> -->
+
+        </ul>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+
+
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <span class="nav prev">&#10094;</span>
+  <img src="" id="lightbox-img" />
+  <span class="nav next">&#10095;</span>
+  <span class="nav close" id="lightbox-close">&#10006;</span>
+</div>
+
+<script>
+  const productId = "room-a"; // Change this ID per room: room-a, room-b, etc.
+
+  const reviewForm = document.getElementById("reviewForm");
+  const reviewList = document.getElementById("reviewList");
+
+  // Load Reviews
+  async function loadReviews() {
+    try {
+      const res = await fetch(`https://review-chez.vercel.app/api/getReviews?productId=${productId}`);
+      const reviews = await res.json();
+
+      if (!Array.isArray(reviews) || reviews.length === 0) {
+        reviewList.innerHTML = "<p>No reviews yet.</p>";
+        return;
+      }
+
+      reviewList.innerHTML = reviews.map(r => `
+        <div class="review-item">
+          <strong>${r.name}</strong>
+          <p>${r.message}</p>
+        </div>
+      `).join('');
+    } catch (err) {
+      reviewList.innerHTML = "<p>Error loading reviews.</p>";
+    }
+  }
+
+  // Submit Review
+  reviewForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const message = document.getElementById("message").value.trim();
+    if (!name || !message) return alert("All fields are required!");
+
+    try {
+      await fetch("https://review-chez.vercel.app/api/submitReview", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, message, productId })
+      });
+
+      reviewForm.reset();
+      loadReviews();
+    } catch (err) {
+      alert("Failed to submit review.");
+    }
+  });
+
+  loadReviews();
+
+  // ========== IMAGE SLIDER LOGIC ==========
+  let currentIndex = 0;
+  const slidesContainer = document.getElementById("slides");
+  const totalSlides = slidesContainer.children.length;
+
+  function updateSlider() {
+    slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateSlider();
+  }, 6000);
+// ========== LIGHTBOX LOGIC ==========
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const images = document.querySelectorAll(".slide img");
+const nextBtn = document.querySelector("#lightbox .next");
+const prevBtn = document.querySelector("#lightbox .prev");
+const closeBtn = document.getElementById("lightbox-close");
+
+let lightboxIndex = 0;
+
+// Show lightbox when image is clicked
+images.forEach((img, index) => {
+  img.addEventListener("click", () => {
+    lightbox.style.display = "flex";
+    lightboxImg.src = img.src;
+    lightboxIndex = index;
+  });
+});
+
+// Navigate next
+nextBtn.onclick = () => {
+  lightboxIndex = (lightboxIndex + 1) % images.length;
+  lightboxImg.src = images[lightboxIndex].src;
+};
+
+// Navigate prev
+prevBtn.onclick = () => {
+  lightboxIndex = (lightboxIndex - 1 + images.length) % images.length;
+  lightboxImg.src = images[lightboxIndex].src;
+};
+
+// Close button
+closeBtn.onclick = () => {
+  lightbox.style.display = "none";
+};
+
+// Click outside image to close
+lightbox.onclick = (e) => {
+  if (e.target === lightbox) {
+    lightbox.style.display = "none";
+  }
+};
+
+// Keyboard support
+document.addEventListener("keydown", (e) => {
+  if (lightbox.style.display === "flex") {
+    if (e.key === "ArrowRight") nextBtn.click();
+    if (e.key === "ArrowLeft") prevBtn.click();
+    if (e.key === "Escape") closeBtn.click();
+  }
+});
+
+lightbox.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
+
+lightbox.addEventListener("touchmove", (e) => {
+  endX = e.touches[0].clientX;
+});
+
+lightbox.addEventListener("touchend", (e) => {
+  const diff = endX - startX;
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) {
+      prevBtn.click(); // Swipe right
+    } else {
+      nextBtn.click(); // Swipe left
+    }
+  } else if (e.target === lightbox) {
+    // If swipe was too short, check if user tapped background to close
+    lightbox.style.display = "none";
+  }
+
+  startX = 0;
+  endX = 0;
+});
+
+
+</script>
+
+<script src="../js/script.js"></script>
+
+
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="arrow-up" aria-hidden="true"></ion-icon>
+  </a>
+
+
+
+
+
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
