@@ -497,9 +497,31 @@ body {
 .service-card .card-title { margin-block: 25px 12px; }
 
 .service-card .card-text { line-height: 1.6; }
+/* book now btn */
+ .book-now {
+      display: inline-block;
+      padding: 12px 30px;
+      background: linear-gradient(135deg, #ff7a18, #af002d 70%);
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease-in-out;
+      position: relative;
+      overflow: hidden;
+    }
 
+    .book-now:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(135deg, #af002d, #ff7a18 70%);
+    }
 
-
+    .book-now:active {
+      transform: scale(0.98);
+    }
 
 
 /*-----------------------------------*\
