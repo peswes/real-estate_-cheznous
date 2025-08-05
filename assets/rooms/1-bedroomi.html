@@ -83,11 +83,11 @@
     .book-btn {
       display: inline-block;
       margin-top: 1.5rem;
-      background: orange;
+    background: linear-gradient(135deg, #ff7a18, #af002d 70%);
       color: white;
       padding: 0.8rem 2rem;
       border: none;
-      font-size: 1rem;
+      font-size: 1.5rem;
       border-radius: 6px;
       cursor: pointer;
       text-decoration: none;
@@ -262,31 +262,51 @@
   <section class="apartment-info" style="padding-top: 100px;">
     <div class="slider" id="slider">
       <div class="slides" id="slides">
-        <div class="slide"><img src="../images/Screenshot_20250728-154428~2.png" alt="Apartment 1" /></div>
-        <div class="slide"><img src="../images/Screenshot_20250728-154437~2.png" alt="Apartment 2" /></div>
-        <div class="slide"><img src="../images/Screenshot_20250728-162716~2.png" alt="Apartment 3" /></div>
+        <div class="slide"><img src="../images/1-bedromm-8.png" alt="Chez nous chezz vous apartment 1-bedroom flat" /></div>
+    <div class="slide"><img src="../images/1-bedroom-10.png" alt="Chez nous chezz vous apartment 1-bedroom flat" /></div>
+    <div class="slide"><img src="../images/1-bedroom-11.png" alt="Chez nous chezz vous apartment 1-bedroom flat" /></div>
+    <div class="slide"><img src="../images/1-bedroom-12.png" alt="Chez nous chezz vous apartment 1-bedroom flat" /></div>
+    <div class="slide"><img src="../images/1-bedroom-13.png" alt="Chez nous chezz vous apartment 1-bedroom flat" /></div>
+    <div class="slide"><img src="../images/1-bedroom-14.png" alt="Chez nous chezz vous apartment 1-bedroom flat" /></div>
+    <div class="slide"><img src="../images/1-bedroom-15.png" alt="Chez nous chezz vous apartment 1-bedroom flat" /></div>
+    <div class="slide"><img src="../images/1-bedroom-19.png" alt="Chez nous chezz vous apartment 1-bedroom flat" /></div>
+    <div class="slide"><img src="../images/1-bedroom-20.png" alt="Chez nous chezz vous apartment 1-bedroom flat" /></div>
+    <div class="slide"><img src="../images/1-bedroom-28.png" alt="Chez nous chezz vous apartment 1-bedroom flat" /></div>
+    <div class="slide"><img src="../images/1-bedroom-30.png" alt="Chez nous chezz vous apartment 1-bedroom flat" /></div>
+    <div class="slide"><img src="../images/1-bedroom-30.png" alt="Chez nous chezz vous apartment 1-bedroom flat" /></div>
+    <div class="slide"><img src="../images/1-bedroom-43.png" alt="Chez nous chezz vous apartment 1-bedroom flat" /></div>
+    <div class="slide"><img src="../images/1-bedroom-46.png" alt="Chez nous chezz vous apartment 1-bedroom flat" /></div>
+    <div class="slide"><img src="../images/1-bedroom-47.png" alt="Chez nous chezz vous apartment 1-bedroom flat" /></div>
+    <div class="slide"><img src="../images/1-bedroom-5.png" alt="Chez nous chezz vous apartment 1-bedroom flat" /></div>
+    <div class="slide"><img src="../images/2-bedroom-9.png" alt="Chez nous chezz vous apartment 1-bedroom flat" /></div>
+        <div class="slide"><img src="../images/2-bedroom-2.png" alt="Chez nous chezz vous apartment 1-bedroom flat" /></div>
+          <div class="slide"><img src="../images/1-bedroom-43.png" alt="Chez nous chezz vous apartment 1-bedroom flat" /></div>
+            <div class="slide"><img src="../images/1-bedroom3.png" alt="Chez nous chezz vous apartment 1-bedroom flat" /></div>
+        
       </div>
     </div>
 
     <div class="details">
-      <p><strong>Location:</strong> Omoniyi Estate, Akure, Nigeria</p>
+      <p><strong>Location:</strong>📍50 Ifelodun Steet, Ipaja,Lagos </p>
 
       <div class="features">
-        <div class="feature-box"><strong>✓</strong> Spacious Bedroom</div>
+         <div class="feature-box"><strong>✓</strong> Spacious Bedroom</div>
         <div class="feature-box"><strong>✓</strong> Ensuite Bathroom</div>
         <div class="feature-box"><strong>✓</strong> Fully Equipped Kitchen</div>
-        <div class="feature-box"><strong>✓</strong> Smart TV & Netflix</div>
+        <div class="feature-box"><strong>✓</strong> Smart TV</div>
         <div class="feature-box"><strong>✓</strong> High-Speed Wi-Fi</div>
-        <div class="feature-box"><strong>✓</strong> 24/7 Security & CCTV</div>
+        <div class="feature-box"><strong>✓</strong> 24/7 Security</div>
         <div class="feature-box"><strong>✓</strong> Private Parking</div>
         <div class="feature-box"><strong>✓</strong> Air Conditioning</div>
+        <div class="feature-box"><strong>✓</strong>Starlink internet</div>
+         <div class="feature-box"><strong>✓</strong>24hrs power supeply</div>
       </div>
 
       <a href="#" class="book-btn">Book Now</a>
     </div>
   </section>
 
-  <section class="house-rules">
+  <section class="house-rules" style="font-size: 13px;">
     <h2>House Rules & Guidelines</h2>
 
     <h3>CHECK IN AND CHECK OUT</h3>
@@ -584,7 +604,7 @@
   setInterval(() => {
     currentIndex = (currentIndex + 1) % totalSlides;
     updateSlider();
-  }, 6000);
+  }, 1500);
 // ========== LIGHTBOX LOGIC ==========
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
@@ -676,7 +696,6 @@ lightbox.addEventListener("touchend", (e) => {
   <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
     <ion-icon name="arrow-up" aria-hidden="true"></ion-icon>
   </a>
-
 
 
 
