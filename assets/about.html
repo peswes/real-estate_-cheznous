@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | Chez Nous Chez Vous Apartments</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+
+<meta name="title" content="Chez Nous Chez Vous Apartments | Comfortable & Affordable Short-Term Rentals">
+<meta name="description" content="Book stylish, fully furnished short-term apartments with modern amenities, free Wi-Fi, 24/7 support, and flexible check-in. Your perfect home away from home.">
+
+<!-- Keywords (not used much by Google, but some search engines still use it) -->
+<meta name="keywords" content="Apartment rental, short stay, furnished apartments, daily rental, short let, apartment in Akure, affordable apartments, Chez Nous Chez Vous">
+
+<!-- Canonical URL (avoids duplicate content issues) -->
+<link rel="canonical" href="https://cheznouschezvousapartment.com" />
+
+<!-- Viewport for Responsive Design -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Author -->
+<meta name="author" content="Chez Nous Chez Vous Apartments">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cheznouschezvousapartment.com">
+<meta property="og:title" content="Chez Nous Chez Vous Apartments | Comfortable & Affordable Short-Term Rentals">
+<meta property="og:description" content="Stylish, fully furnished short-stay apartments in LAgos with modern comforts and flexible check-in. Perfect for vacations, work trips, or retreats.">
+<meta property="og:image" content="https://cheznouschezvousapartment.com/images/og-image.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://cheznouschezvousapartment.com">
+<meta property="twitter:title" content="Chez Nous Chez Vous Apartments | Comfortable & Affordable Short-Term Rentals">
+<meta property="twitter:description" content="Book stylish, fully furnished short-stay apartments with Wi-Fi, comfort, and convenience in Lagos.">
+<meta property="twitter:image" content="https://cheznouschezvousapartment.com/assets/images/2-bedroom-6.png">
+
+  <link rel="shortcut icon" href="./assets/images/home1.png" type="image/svg+xml">
+
+  <!-- 
+    - favicon
+  -->
+  <!-- <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml"> -->
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo" style="font-size: 16px;">
+        <ion-icon name="business-outline" style="color: orange;"></ion-icon> ChezNous 
+      </a>
+
+      <nav class="navbar container" data-navbar>
+        <ul class="navbar-list">
+
+ <li>
+  <a href="../index.html" class="navbar-link" data-nav-link>Home</a>
+</li>
+
+
+
+
+<li>
+  <a href="../assets/about.html" class="navbar-link" data-nav-link>About Us</a>
+</li>
+
+
+<li>
+  <a href="../assets/apartment.html" class="navbar-link" data-nav-link>Rooms</a>
+</li>
+<!-- <li>
+  <a href="./assets/bookings/index.html" class="navbar-link" data-nav-link>Book Now</a>
+</li> -->
+
+<li>
+  <a href="../assets/gallery.html" class="navbar-link" data-nav-link>Gallery</a>
+</li>
+<li>
+  <a href="../assets/contact.html" class="navbar-link" data-nav-link>Contact</a>
+</li>
+
+
+
+        </ul>
+      </nav>
+
+      <a href="./assets/bookings/index.html" class="btn btn-secondary">Book now</a>
+
+      <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true" class="menu-icon"></ion-icon>
+        <ion-icon name="close-outline" aria-hidden="true" class="close-icon"></ion-icon>
+      </button>
+
+    </div>
+  </header>
+
+
+
+  <style>
+
+    :root {
+      --orange: #ff6a00;
+      --white: #ffffff;
+      --light-orange: #fff4ec;
+      --gray: #2e2e2e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--white);
+      color: var(--gray);
+      padding: 0;
+    }
+
+    .about-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 4rem 1.5rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .about-image {
+      flex: 1 1 45%;
+      padding-right: 1rem;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(255, 106, 0, 0.2);
+    }
+
+    .about-text {
+      flex: 1 1 50%;
+      padding-left: 1rem;
+    }
+
+    .about-text h1 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      color: var(--orange);
+    }
+
+    .about-text p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .feature-box {
+      background-color: var(--light-orange);
+      padding: 1rem 1.2rem;
+      border-radius: 8px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-3px);
+    }
+
+    .feature-box strong {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--orange);
+    }
+
+    @media (max-width: 768px) {
+      .about-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+
+      .about-image,
+      .about-text {
+        flex: 1 1 100%;
+        padding: 0;
+      }
+
+      .about-text h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="about-section" style="padding-top: 30px;">
+    <div class="about-image" style="padding-top: 50px;">
+      <img src="../assets/images/1-bedroom-7.png" alt="Apartment view">
+    </div>
+    <div class="about-text">
+      <h1>About Chez Nous Chez Vous</h1>
+      <p style="font-size: 1.6rem;">
+        At <strong>Chez Nous Chez Vous Apartments</strong>, we redefine short-term living with beautifully furnished, 
+        peaceful, and stylish apartments made for your comfort. Whether you're on a business trip, staycation, or 
+        romantic escape, your comfort is our mission.
+      </p>
+      <p style="font-size: 1.6rem;">
+        Our apartments are designed to offer a home-away-from-home feel — fully equipped, clean, quiet, and located 
+        in a secure, serene environment.
+      </p>
+
+      <div class="features">
+        <div class="feature-box">
+          <strong>Flexible Check-In</strong>
+          Arrive at your own pace. Check-in from 2 PM with host support.
+        </div>
+        <div class="feature-box">
+          <strong>Designed for Comfort</strong>
+          Enjoy spotless bathrooms, cozy beds, and peaceful ambiance.
+        </div>
+        <div class="feature-box">
+          <strong>Short-Stay Ready</strong>
+          Ideal for quick visits, family stays, and business travel.
+        </div>
+        <div class="feature-box">
+          <strong>Prime Location</strong>
+          Quiet area, easy transport, and everything within reach.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer" style="padding-top: 20px;">
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <ion-icon name="business-outline" style="color: orange;"></ion-icon> Cheznous
+          </a>
+
+          <p class="footer-text">
+      Experience premium short-let living in the heart of Lagos. Whether you're traveling for business, relaxation, or relocation, our apartments provide the perfect home-away-from-home experienc
+          </p>
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">USeful Links</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <span class="span">🛏️ Apartments</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <span class="span">📝 Book Now</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <span class="span">📸 Gallery</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+                    <span class="span">📞 Contact Us</span>
+            </a>
+          </li>
+
+                <li>
+            <a href="#" class="footer-link">
+                    <span class="span">📄 Terms & Conditions</span>
+            </a>
+          </li>
+
+        </ul>
+
+  
+
+ 
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Contact Details</p>
+          </li>
+
+          <li class="footer-item">
+            <ion-icon name="location-outline"></ion-icon>
+
+            <address class="address">
+              
+              50 Ifelodin street
+              Ipaja,Lagos
+              <a href="https://maps.app.goo.gl/zrKJTCGTyAtUd3ib7" class="address-link">View on Google map</a>
+            </address>
+          </li>
+
+          <li class="footer-item">
+            <ion-icon name="mail-outline"></ion-icon>
+
+            <a href="mailto:contact@example.com" class="footer-link">Cheznouschezvousltd@gmail.com</a>
+          </li>
+
+          <li class="footer-item">
+            <ion-icon name="call-outline"></ion-icon>
+
+            <a href="tel:+152534468854" class="footer-link">2349030927285</a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2025  Chez Nous Chez Vous. All Right Reserved by<a href="#" class="copyright-link"> Chez Nous Chez Vous</a>.
+        </p>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="https://wa.me/2349030927285" class="social-link">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.instagram.com/cheznouschezvouslagos/?hl=en" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <!-- <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li> -->
+
+        </ul>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+
+
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="https://wa.me/2349030927285" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+         <ion-icon name="logo-whatsapp"></ion-icon>
+  </a>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="../assets/js/script.js" defer></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
