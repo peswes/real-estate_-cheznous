@@ -173,7 +173,8 @@ body {
 
 .btn:is(:hover, :focus) { background-color: var(--sea-green); }
 
-.btn-secondary { border-radius: 50px; }
+.btn-secondary { border-radius: 50px;
+font-size: 11px; }
 
 .btn-primary { border-radius: var(--radius-6); }
 
