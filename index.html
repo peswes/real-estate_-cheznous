@@ -66,8 +66,8 @@
   <header class="header" data-header>
     <div class="container">
 
-      <a href="#" class="logo" style="font-size: 16px;">
-        <ion-icon name="business-outline" style="color: orange;"></ion-icon> ChezNous 
+      <a href="#" class="logo" style="font-size: 12px;">
+        <ion-icon name="business-outline" style="color: orange;"></ion-icon> ChezNous chezvous
       </a>
 
       <nav class="navbar container" data-navbar>
@@ -143,167 +143,469 @@ Experience comfort, privacy, and warmth perfect for business, leisure, or a peac
           </div>
 <div class="hero-form-wrapper">
   <div class="form-tab">
+    <button class="tab-btn active" data-tab-target="#apartments">Our Apartments</button>
+    <button class="tab-btn" data-tab-target="#facilities">Facilities</button>
+    <button class="tab-btn" data-tab-target="#policies">Guest Policies</button>
+  </div>
 
-    <button class="tab-btn active" data-tab-btn>Book a Room</button>
-    <button class="tab-btn" data-tab-btn>Room Rates</button>
-    <button class="tab-btn" data-tab-btn>Guest Policies</button>
+<!-- Apartments Form -->
+<div class="tab-content active" id="apartments">
+  <form id="bookingForm" class="hero-form">
+    <!-- Flat Type -->
+    <div class="input-wrapper">
+      <label for="category" class="input-label">Flat Type:</label>
+      <select name="category" id="category" class="dropdown-list" required>
+        <option value="">-- Select Flat Type --</option>
+        <option value="1-bedroom">1-Bedroom Flat</option>
+        <option value="2-bedroom">2-Bedroom Flat</option>
+      </select>
+    </div>
+
+    <!-- Check-in Date -->
+    <div class="input-wrapper">
+      <label for="check-in" class="input-label">Check-in Date:</label>
+      <input type="date" id="check-in" name="check-in" class="input-field" required>
+    </div>
+
+    <!-- Check-out Date -->
+    <div class="input-wrapper">
+      <label for="check-out" class="input-label">Check-out Date:</label>
+      <input type="date" id="check-out" name="check-out" class="input-field" required>
+    </div>
+
+    <!-- Number of Guests -->
+    <div class="input-wrapper">
+      <label for="guests" class="input-label">Number of Guests:</label>
+      <input type="number" id="guests" name="guests" min="1" placeholder="e.g. 2" class="input-field" required>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" class="btn btn-primary">Check Availability</button>
+  </form>
+
+  <!-- Availability Results -->
+  <div id="results" class="results-box"></div>
+</div>
+
+<style>
+  .results-box {
+    margin-top: 20px;
+    color: black;
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
+  }
+</style>
+
+<!-- JavaScript -->
+<script>
+  const rooms = [
+    { name: "1-Bedroom Flat", type: "1-bedroom", available: true, maxGuests: 4 },
+    { name: "2-Bedroom Flat", type: "2-bedroom", available: true, maxGuests: 6 },
+    { name: "Mini Flat", type: "1-bedroom", available: true, maxGuests: 4 }
+  ];
+
+  document.getElementById("bookingForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const category = document.getElementById("category").value;
+    const checkIn = new Date(document.getElementById("check-in").value);
+    const checkOut = new Date(document.getElementById("check-out").value);
+    const guests = parseInt(document.getElementById("guests").value);
+    const resultsDiv = document.getElementById("results");
+
+    // Validation: all fields filled
+    if (!category || !checkIn || !checkOut || !guests) {
+      resultsDiv.innerHTML = "<p style='color:red;'>Please fill all fields.</p>";
+      return;
+    }
+
+    // Validation: check-out date after check-in date
+    if (checkOut <= checkIn) {
+      resultsDiv.innerHTML = "<p style='color:red;'>Check-out date must be after check-in date.</p>";
+      return;
+    }
+
+    const room = rooms.find(r => r.type === category);
+
+    // Validation: guest limit
+    if (guests > room.maxGuests) {
+      resultsDiv.innerHTML = `<p style='color:red;'>Maximum guests for ${room.name} is ${room.maxGuests}.</p>`;
+      return;
+    }
+
+    // Show availability
+    resultsDiv.innerHTML = `
+      <p><strong>${room.name}</strong></p>
+      <p>Status: ${room.available ? "✅ Available" : "❌ Not Available"}</p>
+      <p>Check-in: ${checkIn.toDateString()}</p>
+      <p>Check-out: ${checkOut.toDateString()}</p>
+      <p>Guests: ${guests}</p>
+    `;
+  });
+</script>
+
+
+  <div class="tab-content" id="facilities">
+   <section class="facilities">
+  <h2>Facilities</h2>
+  <ul>
+    <li>📶 High-speed Starlink Internet</li>
+    <li>🛏 Fully furnished rooms with modern décor</li>
+    <li>❄ Air conditioning in all rooms</li>
+    <li>💧 24/7 clean water supply</li>
+    <li>🔒 Secure gated compound with CCTV surveillance</li>
+    <li>🚗 Free private parking</li>
+    <li>🧹 Weekly housekeeping services</li>
+    <li>🍳 Fully equipped kitchen</li>
+    <li>📺 Smart TV with streaming services</li>
+  </ul>
+</section>
+
+<style>
+.facilities {
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.facilities h2 {
+  color: #000;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: .5rem;
+}
+
+.facilities ul {
+  list-style: none;
+  padding: 0;
+}
+
+.facilities ul li {
+  color: #000;
+  font-size: 1.5rem;
+  margin-bottom: .7rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.facilities ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  background: #000;
+  border-radius: 50%;
+}
+</style>
 
   </div>
 
-  <form action="" class="hero-form">
+  <div class="tab-content" id="policies">
+   <div class="policies-section">
+  <h2>Guest Policies</h2>
 
-    <div class="input-wrapper">
-      <label for="search" class="input-label">Search Rooms: *</label>
-      <input type="search" name="search" id="search" placeholder="e.g. Deluxe Room, Single Room" required
-        class="input-field">
-      <ion-icon name="search-outline"></ion-icon>
-    </div>
+  <div class="policy-card">
+    <h3>Check-In & Check-Out</h3>
+    <ul>
+      <li>Check-in: from 14:00</li>
+      <li>Check-out: before 12:00 PM</li>
+      <li>Keys are received from the manager or host upon arrival and must be returned to the manager or host upon departure.</li>
+    </ul>
+  </div>
 
-    <div class="input-wrapper">
-      <label for="category" class="input-label">Room Type:</label>
-      <select name="category" id="category" class="dropdown-list">
-        <option value="standard">Standard Room</option>
-        <option value="deluxe">Deluxe Room</option>
-        <option value="suite">Suite</option>
-        <option value="family">Family Room</option>
-      </select>
-    </div>
+  <div class="policy-card">
+    <h3>During Your Stay</h3>
+    <ul>
+      <li>Maximum 4 guests for the mini flat and 6 guests for the 2-bedroom flat. Additional guests must be discussed and approved by the host.</li>
+      <li>No pets allowed.</li>
+      <li>No smoking inside the flats.</li>
+      <li>No parties or events unless discussed and approved by the host.</li>
+    </ul>
+  </div>
 
-    <div class="input-wrapper">
-      <label for="min-price" class="input-label">Min Price (₦):</label>
-      <select name="min-price" id="min-price" class="dropdown-list">
-        <option value="">Select Min</option>
-        <option value="10000">₦10,000</option>
-        <option value="15000">₦15,000</option>
-        <option value="20000">₦20,000</option>
-        <option value="25000">₦25,000</option>
-      </select>
-    </div>
+  <div class="policy-card">
+    <h3>Additional Rules & Comments</h3>
+    <ul>
+      <li>Proof of ID must be provided to the host before arrival.</li>
+      <li>Maximum of 2 cars per unit may park inside the property.</li>
+      <li>Smoking is strictly prohibited inside the flats — only allowed in the designated smoking area located in the compound.</li>
+      <li>Guests are responsible for the good care of the flat and furniture. The flat must be returned in the same condition it was received. Any damage will result in no return of the deposit and further proceedings if needed.</li>
+      <li>Please be mindful of the neighborhood when playing music or making noise.</li>
+    </ul>
+  </div>
 
-    <div class="input-wrapper">
-      <label for="max-price" class="input-label">Max Price (₦):</label>
-      <select name="max-price" id="max-price" class="dropdown-list">
-        <option value="">Select Max</option>
-        <option value="20000">₦20,000</option>
-        <option value="25000">₦25,000</option>
-        <option value="30000">₦30,000</option>
-        <option value="40000">₦40,000</option>
-      </select>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Check Availability</button>
-
-  </form>
+  <div class="policy-card">
+    <p style="font-size: 15px;">Our apartments are designed solely to make you feel comfortable and safe at home. We hope you enjoy your stay at <strong>Chez Nous Chez Vous Apartments</strong>. Do not hesitate to contact us if you need anything!</p>
+  </div>
 </div>
 
-      </section>
+    </section>
+  </div>
+</div>
 
+<!-- JavaScript for Tabs -->
+<script>
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
 
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      tabContents.forEach(content => content.classList.remove('active'));
+      const target = document.querySelector(button.dataset.tabTarget);
+      target.classList.add('active');
+    });
+  });
+</script>
 
+<!-- CSS for design -->
+<style>
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .tab-btn.active { background: orange; color: white; }
+
+  /* Facilities Styles */
+  .facilities-section {
+    text-align: center;
+    padding: 30px;
+    background: #f9f9f9;
+    color: #000000; /* Text black */
+  }
+  .facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .facility-item {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    color: #000000; /* Text black */
+  }
+  .facility-item img {
+    width: 50px;
+    margin-bottom: 10px;
+  }
+  .facility-item:hover {
+    transform: translateY(-5px);
+  }
+
+  /* Policies Styles */
+  .policies-section {
+    padding: 30px;
+    background: #fff;
+    color: #000000; /* Text black */
+  }
+  .policies-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000000; /* Heading black */
+  }
+  .policy-card {
+    background: #f4f6f8;
+    padding: 15px;
+    border-left: 4px solid orange;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    color: #000000; /* Text black */
+  }
+  .policy-card:hover {
+    background: #eaf3ff;
+  }
+   .policy-card h3{
+    font-size: 16px;
+   }
+   .policy-card ul li{
+    font-size: 15px;
+   }
+</style>
 
 
       <!-- 
         - #ABOUT
       -->
 
-      <section class="section about" aria-label="about">
-        <div class="container">
+<section class="section about" aria-label="about">
+  <div class="container">
 
-          <div class="about-banner img-holder" style="--width: 600; --height: 700;">
-            <img src="./assets/images/2-bedroom-41.png" width="600" height="700" loading="lazy" alt="about banner"
-              class="img-cover">
+    <div class="about-banner img-holder" style="--width: 600; --height: 700;">
+      <img src="./assets/images/1bedroom-44.png" width="600" height="700" loading="lazy" alt="about banner"
+        class="img-cover">
 
-            <button class="play-btn" aria-label="play video">
-              <ion-icon name="play" aria-hidden="true"></ion-icon>
-            </button>
-          </div>
+      <!-- Play Button -->
+      <button class="play-btn" aria-label="play video" onclick="openVideo()">
+        <ion-icon name="play" aria-hidden="true"></ion-icon>
+      </button>
+    </div>
 
-          <div class="about-content">
+    <div class="about-content">
+      <h2 class="h2 section-title">🛏️ Comfortable Stays</h2>
+      <p class="section-text">
+        Designed to Make Your Stay Comfortable, Peaceful, and Memorable
+      </p>
+      <a href="./assets/about.html" class="btn btn-primary">Learn More</a>
+    </div>
 
-            <h2 class="h2 section-title">🛏️ Comfortable Stays</h2>
+  </div>
+</section>
 
-            <p class="section-text">
-    Designed to Make Your Stay Comfortable, Peaceful, and Memorable
-            </p>
+<!-- Video Modal -->
+<div id="videoModal" class="video-modal">
+  <div class="video-container">
+    <span class="close-btn" onclick="closeVideo()">&times;</span>
+    <iframe id="aboutVideo" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+<style>
+ .video-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent; /* dark transparent overlay */
+  justify-content: center;
+  align-items: center;
+}
 
-            <a href="./assets/about.html" class="btn btn-primary">Learn More</a>
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
 
-          </div>
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 
-        </div>
-      </section>
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  z-index: 10000;
+}
 
+</style>
+<script>
+function openVideo() {
+  document.getElementById("videoModal").style.display = "flex";
+  document.getElementById("aboutVideo").src = "./assets/images/WhatsApp Video 2025-07-28 at 11.51.12 PM (2).mp4";
+}
 
+function closeVideo() {
+  document.getElementById("videoModal").style.display = "none";
+  document.getElementById("aboutVideo").src = "";
+}
+</script>
 
 
 
       <!-- 
         - #SERVICE
       -->
+<section class="section service" aria-label="service">
+  <div class="container">
 
-      <section class="section service" aria-label="service">
-        <div class="container">
+    <h2 class="h2 section-title">Why choose us</h2>
 
-          <h2 class="h2 section-title">Why choosw us</h2>
+    <p class="section-text">
+      Our apartments are thoughtfully designed to give you more than just a place to stay — they’re a perfect blend of comfort, modern amenities, and a location that keeps you close to everything you need.
+    </p>
 
-          <p class="section-text">
-            A great plateform to buy, sell and rent your properties without any agent or commisions.
-          </p>
+    <ul class="service-list">
 
-          <ul class="service-list">
-
-            <li>
-              <div class="service-card">
-
-                <div class="card-icon">
-                  <ion-icon name="home-outline" style="color: rgb(52, 46, 1);"></ion-icon>
-                </div>
-
-                <h3 class="h3 card-title">🍳 Start Your Day Right</h3>
-
-                <p class="card-text">
-         Wake up to a delicious breakfast made fresh every morning. From hot local meals to continental options, we serve you a variety of tasty dishes to get your day going
-                </p>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="service-card">
-
-                <div class="card-icon">
-               <ion-icon name="home-outline" style="color: rgb(52, 46, 1);"></ion-icon>
-                </div>
-
-                <h3 class="h3 card-title">🧼 Cleanliness is Our Priority</h3>
-
-                <p class="card-text">
-   Your safety and comfort matter to us. Every room is thoroughly cleaned and sanitized before your arrival, and we maintain high hygiene standards across the property
-                </p>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="service-card">
-
-                <div class="card-icon">
-                  <ion-icon name="home-outline" style="color: rgb(52, 46, 1);"></ion-icon>
-                </div>
-
-                <h3 class="h3 card-title">📍 Perfect Location</h3>
-
-                <p class="card-text">
-      We're conveniently located at [Full Address or Area], just a short distance from:
-                </p>
-
-              </div>
-            </li>
-
-          </ul>
+      <li>
+        <div class="service-card">
+          <div class="card-icon">
+            <ion-icon name="home-outline" style="color: rgb(52, 46, 1);"></ion-icon>
+          </div>
+      <h3 class="h3 card-title">🛁 Relax in Comfort</h3>
+<p class="card-text">
+  Enjoy a sparkling clean, fully equipped bathroom with modern fittings, hot showers, and fresh towels. Every detail is designed for your comfort and convenience.
+</p>
 
         </div>
-      </section>
+      </li>
+
+      <li>
+        <div class="service-card">
+          <div class="card-icon">
+            <ion-icon name="home-outline" style="color: rgb(52, 46, 1);"></ion-icon>
+          </div>
+          <h3 class="h3 card-title">🧼 Cleanliness is Our Priority</h3>
+          <p class="card-text">
+            Your safety and comfort matter to us. Every room is thoroughly cleaned and sanitized before your arrival, and we maintain high hygiene standards across the property.
+          </p>
+        </div>
+      </li>
+
+      <li>
+        <div class="service-card">
+          <div class="card-icon">
+            <ion-icon name="home-outline" style="color: rgb(52, 46, 1);"></ion-icon>
+          </div>
+          <h3 class="h3 card-title">📍 Perfect Location</h3>
+          <p class="card-text">
+            We're conveniently located at   50 Ifelodin street
+              Ipaja,Lagos, just a short distance from shopping, dining, and public transport making it easy to explore the city.
+          </p>
+        </div>
+      </li>
+
+      <!-- New Feature: Equipped Toilets -->
+      <li>
+        <div class="service-card">
+          <div class="card-icon">
+            <ion-icon name="water-outline" style="color: rgb(52, 46, 1);"></ion-icon>
+          </div>
+          <h3 class="h3 card-title">🚿 Fully Equipped Toilets</h3>
+          <p class="card-text">
+            Enjoy modern bathrooms with hot showers, fresh towels, and quality toiletries — everything you need for a refreshing stay.
+          </p>
+        </div>
+      </li>
+
+      <!-- New Feature: Cozy Living Spaces -->
+      <li>
+        <div class="service-card">
+          <div class="card-icon">
+            <ion-icon name="bed-outline" style="color: rgb(52, 46, 1);"></ion-icon>
+          </div>
+          <h3 class="h3 card-title">🛋️ Cozy Living Spaces</h3>
+          <p class="card-text">
+            Relax in comfortable, stylishly furnished rooms designed to make you feel right at home, whether you’re here for a night or a month.
+          </p>
+        </div>
+      </li>
+
+    </ul>
+
+  </div>
+</section>
 
 
 
@@ -339,7 +641,7 @@ Experience comfort, privacy, and warmth perfect for business, leisure, or a peac
           <div class="card-content">
 
             <h3 class="h3">
-              <a href="#" class="card-title">1 bedroom flat – 50 Ifelodin Street, Ipaja</a>
+              <a href="./assets/rooms/1-bedroomi.html" class="card-title">1 bedroom flat – 50 Ifelodin Street, Ipaja</a>
             </h3>
 
             <ul class="card-list">
@@ -399,7 +701,7 @@ Experience comfort, privacy, and warmth perfect for business, leisure, or a peac
           <div class="card-content">
 
             <h3 class="h3">
-              <a href="#" class="card-title">2 bedroom flat – 50 Ifelodin Street, Ipaja</a>
+              <a href="./assets/rooms/2-bedroom.html" class="card-title">2 bedroom flat – 50 Ifelodin Street, Ipaja</a>
             </h3>
 
             <ul class="card-list">
@@ -454,67 +756,103 @@ Experience comfort, privacy, and warmth perfect for business, leisure, or a peac
 
 
 
-      <!-- 
-        - #CONTACT
-      -->
+ <!-- 
+  - #CONTACT
+-->
 
-      <section class="section contact" aria-label="contact">
-        <div class="container">
+<section class="section contact" aria-label="contact">
+  <div class="container">
 
-          <h2 class="h2 section-title">Have Question ? Get in touch!</h2>
+    <h2 class="h2 section-title">Your Comfort is Just a Call Away</h2>
 
-          <p class="section-text">
-            A great plateform to buy, sell and rent your properties without any agent or commisions.
-          </p>
+    <p class="section-text">
+      Whether you’re booking a stay, asking about amenities, or planning a special event, our team at Chez Nous Chez Vous Apartments is ready to assist you anytime.
+    </p>
 
-          <button class="btn btn-primary">
-            <ion-icon name="call-outline"></ion-icon>
+    <button class="btn btn-primary">
+      <ion-icon name="call-outline"></ion-icon>
+      <a href="https://wa.me/2349030927285">
+        <span class="span">Contact Us</span>
+      </a>
+    </button>
 
-            <span class="span">Contact us</span>
-          </button>
-
-        </div>
-      </section>
-
-
-
+  </div>
+</section>
 
 
-      <!-- 
-        - #NEWSLETTER
-      -->
+<!-- 
+  - #GALLERY PREVIEW
+-->
 
-      <section class="newsletter" aria-label="newsletter">
-        <div class="container">
+<section class="gallery-preview" aria-label="gallery preview">
+  <div class="container">
 
-          <div class="wrapper">
-            <h2 class="h2 section-title">Subscribe to Newsletter!</h2>
+    <div class="wrapper">
+      <h2 class="h2 section-title">Our Apartment Gallery</h2>
+      <p class="section-text">Explore our beautiful apartments. Click to view the full gallery.</p>
+    </div>
 
-            <p class="section-text">Subscribe to get latest updates and information.</p>
-          </div>
+    <div class="gallery-grid">
+      <a href="./assets/gallery.html" class="gallery-item">
+        <img src="./assets/images/1-bedroom-20.png" alt="Modern Living Room">
+      </a>
+      <a href="./assets/gallery.html" class="gallery-item">
+        <img src="./assets/images/1-bedroom-30.png" alt="Cozy Bedroom">
+      </a>
+      <a href="./assets/gallery.html" class="gallery-item">
+        <img src="./assets/images/2-bedroom-12.png" alt="Spacious Kitchen">
+      </a>
+      <a href="./assets/gallery.html" class="gallery-item">
+        <img src="assets/images/2-bedroom-22.png" alt="Balcony View">
+      </a>
+    </div>
 
-          <form action="" class="newsletter-form">
-            <input type="email" name="email_address" placeholder="Enter your email :" aria-label="Enter your email"
-              required class="email-field">
+    <div class="view-more">
+      <a href="./assets/gallery.html" class="book-now">View Full Gallery</a>
+    </div>
 
-            <button type="submit" class="btn btn-secondary">Subscribe</button>
-          </form>
+  </div>
+</section>
 
-        </div>
-      </section>
+<style>
+.gallery-preview {
+  padding: 50px 0;
+  background: #f9f9f9;
+  text-align: center;
+}
 
-    </article>
-  </main>
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.view-more {
+  margin-top: 30px;
+}
+</style>
 
 
 
-
-
+    
   <!-- 
     - #FOOTER
   -->
 
-  <footer class="footer">
+  <footer class="footer" style="padding-top: 20px;">
 
     <div class="footer-top">
       <div class="container">
@@ -538,31 +876,31 @@ Experience comfort, privacy, and warmth perfect for business, leisure, or a peac
           </li>
 
           <li>
-            <a href="#" class="footer-link">
+            <a href="./assets/apartment.html" class="footer-link">
               <span class="span">🛏️ Apartments</span>
             </a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">
+            <a href="./assets/bookings/index.html" class="footer-link">
               <span class="span">📝 Book Now</span>
             </a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">
+            <a href="./assets/gallery.html" class="footer-link">
               <span class="span">📸 Gallery</span>
             </a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">
+            <a href="./assets/contact.html" class="footer-link">
                     <span class="span">📞 Contact Us</span>
             </a>
           </li>
 
                 <li>
-            <a href="#" class="footer-link">
+            <a href="./assets/terms&conditions.html" class="footer-link">
                     <span class="span">📄 Terms & Conditions</span>
             </a>
           </li>
@@ -586,20 +924,20 @@ Experience comfort, privacy, and warmth perfect for business, leisure, or a peac
               
               50 Ifelodin street
               Ipaja,Lagos
-              <a href="#" class="address-link">View on Google map</a>
+              <a href="https://maps.app.goo.gl/zrKJTCGTyAtUd3ib7" class="address-link">View on Google map</a>
             </address>
           </li>
 
           <li class="footer-item">
             <ion-icon name="mail-outline"></ion-icon>
 
-            <a href="mailto:contact@example.com" class="footer-link">contact@example.com</a>
+            <a href="mailto:Cheznouschezvousltd@gmail.com" class="footer-link">Cheznouschezvousltd@gmail.com</a>
           </li>
 
           <li class="footer-item">
             <ion-icon name="call-outline"></ion-icon>
 
-            <a href="tel:+152534468854" class="footer-link">+152 534-468-854</a>
+            <a href="tel:+2349030927285" class="footer-link">+2349030927285</a>
           </li>
 
         </ul>
@@ -611,13 +949,13 @@ Experience comfort, privacy, and warmth perfect for business, leisure, or a peac
       <div class="container">
 
         <p class="copyright">
-          &copy; 2025  Chez Nous Chez Vous. All Right Reserved by <a href="#" class="copyright-link">C</a>.
+          &copy; 2025  Chez Nous Chez Vous. All Right Reserved by<a href="#" class="copyright-link"> Chez Nous Chez Vous</a>.
         </p>
 
         <ul class="social-list">
 
           <li>
-            <a href="#" class="social-link">
+            <a href="https://wa.me/2349030927285" class="social-link">
               <ion-icon name="logo-whatsapp"></ion-icon>
             </a>
           </li>
@@ -655,8 +993,8 @@ Experience comfort, privacy, and warmth perfect for business, leisure, or a peac
     - #BACK TO TOP
   -->
 
-  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
-    <ion-icon name="arrow-up" aria-hidden="true"></ion-icon>
+  <a href="https://wa.me/2349030927285" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+         <ion-icon name="logo-whatsapp"></ion-icon>
   </a>
 
 
@@ -673,6 +1011,7 @@ Experience comfort, privacy, and warmth perfect for business, leisure, or a peac
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 
 </body>
 
