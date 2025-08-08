@@ -147,10 +147,21 @@
       margin: auto;
     }
 
-    .about-image {
-      flex: 1 1 45%;
-      padding-right: 1rem;
-    }
+.about-image {
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px; /* Optional: rounded corners */
+  object-fit: cover;   /* Makes sure it fills the box without distortion */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Optional: soft shadow */
+}
+
 
     .about-image img {
       width: 100%;
@@ -222,11 +233,15 @@
 
   <section class="about-section" style="padding-top: 30px;">
     <div class="about-image" style="padding-top: 50px;">
-      <img src="../assets/images/2-bedroom-3.png" alt="Apartment view">
+     <video autoplay muted loop playsinline>
+  <source src="../assets/images/WhatsApp Video 2025-07-28 at 11.51.12 PM (1).mov" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
     </div>
     <div class="about-text">
-      <h1 style="color: black;">About Chez Nous Chez Vous</h1>
-      <p style="font-size: 1.6rem;">
+   
+      <p style="font-size: 1.6rem; padding-top: 20px;">
         At <strong>Chez Nous Chez Vous Apartments</strong>, we redefine short-term living with beautifully furnished, 
         peaceful, and stylish apartments made for your comfort. Whether you're on a business trip, staycation, or 
         romantic escape, your comfort is our mission.
