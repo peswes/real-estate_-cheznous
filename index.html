@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -162,42 +163,58 @@ Experience comfort, privacy, and warmth perfect for business, leisure, or a peac
   </div>
 
 <!-- Apartments Form -->
-<div class="tab-content active" id="apartments">
-  <form id="bookingForm" class="hero-form">
-    <!-- Flat Type -->
-    <div class="input-wrapper">
-      <label for="category" class="input-label">Flat Type:</label>
-      <select name="category" id="category" class="dropdown-list" required>
-        <option value="">-- Select Flat Type --</option>
-        <option value="1-bedroom">1-Bedroom Flat</option>
-        <option value="2-bedroom">2-Bedroom Flat</option>
-      </select>
+<div class="tab-content active" id="apartments" 
+     style="max-width: 700px; 
+            margin: 20px auto; 
+            padding: 25px 30px; 
+            background: linear-gradient(135deg, #ffffff, #fff7f0); 
+            border-radius: 20px; 
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08); 
+            font-family: 'Poppins', sans-serif; 
+            color: #333; 
+            line-height: 1.8;">
+
+  <div class="promo-section" style="text-align: center;">
+
+    <div class="promo-rates" 
+         style="background-color: #fff; 
+                padding: 20px; 
+                border-radius: 12px; 
+                border-left: 5px solid #ff7b00; 
+                display: inline-block; 
+                text-align: left;">
+      <h3 style="font-size: 18px; color: #ff7b00; margin-top: 0;">🔥 Exclusive Promo Rates</h3>
+      <ul style="list-style: none; padding: 0; margin: 0; font-size: 16px; color: #333;">
+        <li>• <b>1-Bedroom Apartment:</b> ₦50,000 per night <br>
+          <span style="color: #777; font-size: 14px;">(Max Guests: 2)</span>
+        </li>
+        <li style="margin-top: 10px;">• <b>2-Bedroom Apartment:</b> ₦70,000 per night <br>
+          <span style="color: #777; font-size: 14px;">(Max Guests: 4)</span>
+        </li>
+      </ul>
     </div>
 
-    <!-- Check-in Date -->
-    <div class="input-wrapper">
-      <label for="check-in" class="input-label">Check-in Date:</label>
-      <input type="date" id="check-in" name="check-in" class="input-field" required>
-    </div>
+    <p style="margin-top: 20px; font-size: 16px; color: #444;">
+      Don’t miss this limited-time offer! Experience luxury, privacy, and ultimate comfort — designed to make every moment of your stay unforgettable.
+    </p>
 
-    <!-- Check-out Date -->
-    <div class="input-wrapper">
-      <label for="check-out" class="input-label">Check-out Date:</label>
-      <input type="date" id="check-out" name="check-out" class="input-field" required>
-    </div>
-
-    <!-- Number of Guests -->
-    <div class="input-wrapper">
-      <label for="guests" class="input-label">Number of Guests:</label>
-      <input type="number" id="guests" name="guests" min="1" placeholder="e.g. 2" class="input-field" required>
-    </div>
-
-    <!-- Submit -->
-    <button type="submit" class="btn btn-primary">Check Availability</button>
-  </form>
-
-  <!-- Availability Results -->
-  <div id="results" class="results-box"></div>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/2349030927285?text=Hello!%20I'm%20interested%20in%20booking%20an%20apartment." 
+       target="_blank" 
+       style="display: inline-block; 
+              background-color: #ff7b00; 
+              color: #fff; 
+              text-decoration: none; 
+              font-weight: 600; 
+              padding: 12px 20px; 
+              border-radius: 30px; 
+              font-size: 17px; 
+              margin-top: 15px; 
+              box-shadow: 0 4px 10px rgba(255,123,0,0.3); 
+              transition: 0.3s;">
+       💬 Book Now on WhatsApp
+    </a>
+  </div>
 </div>
 
 <style>
@@ -339,7 +356,7 @@ Experience comfort, privacy, and warmth perfect for business, leisure, or a peac
   <div class="policy-card">
     <h3>During Your Stay</h3>
     <ul>
-      <li>Maximum 4 guests for the mini flat and 6 guests for the 2-bedroom flat. Additional guests must be discussed and approved by the host.</li>
+      <li>Maximum 2 guests for the 1-bedroom flat and 4 guests for the 2-bedroom flat. Additional guests must be discussed and approved by the host.</li>
       <li>No pets allowed.</li>
       <li>No smoking inside the flats.</li>
       <li>No parties or events unless discussed and approved by the host.</li>
@@ -686,7 +703,7 @@ function closeVideo() {
 
               <div>
                 <span class="meta-title">Max Guests</span>
-                <span class="meta-text">4 Guests</span>
+                <span class="meta-text">2 Guests</span>
               </div>
 
               <a href="./assets/rooms/1-bedroomi.html" class="book-now">View details</a>
@@ -746,7 +763,7 @@ function closeVideo() {
 
            <div>
   <span class="meta-title">Max Guests</span>
-  <span class="meta-text">6 Guests</span>
+  <span class="meta-text">4 Guests</span>
 </div>
 
             <a href="./assets/rooms/2-bedroom.html" class="book-now">View details</a>
