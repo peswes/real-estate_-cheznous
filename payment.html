@@ -12,12 +12,12 @@
     :root {
       --primary: #ff7b00;
       --secondary: #ffb347;
-      --bg-overlay: rgba(255, 255, 255, 0.65);
-      --glass-bg: rgba(255, 255, 255, 0.8);
-      --glass-border: rgba(255, 255, 255, 0.35);
+      --bg-glass: rgba(255, 255, 255, 0.7);
+      --border-glass: rgba(255, 255, 255, 0.35);
+      --shadow: rgba(0, 0, 0, 0.25);
       --text-dark: #2b2b2b;
-      --shadow: rgba(0, 0, 0, 0.2);
       --radius: 22px;
+      --transition: 0.35s ease;
     }
 
     * {
@@ -27,57 +27,59 @@
       font-family: 'Poppins', sans-serif;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       min-height: 100vh;
-      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat fixed;
-      position: relative;
-      padding: 60px 20px;
+      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      overflow-y: auto;
-      scroll-behavior: smooth;
+      padding: 60px 20px;
+      overflow-y: scroll;
+      position: relative;
     }
 
     body::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.55));
-      z-index: 0;
+      background: linear-gradient(120deg, rgba(255,255,255,0.85), rgba(255,255,255,0.5));
       backdrop-filter: blur(10px);
+      z-index: 0;
     }
 
     .container {
       position: relative;
       z-index: 2;
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
+      background: var(--bg-glass);
+      border: 1px solid var(--border-glass);
       border-radius: var(--radius);
       backdrop-filter: blur(14px);
-      box-shadow: 0 10px 35px var(--shadow);
+      box-shadow: 0 12px 35px var(--shadow);
       padding: 50px 40px;
-      max-width: 500px;
+      max-width: 520px;
       width: 100%;
       text-align: center;
-      animation: fadeIn 1s ease forwards;
       transform: translateY(30px);
       opacity: 0;
+      animation: fadeIn 1.3s var(--transition) forwards;
     }
 
     @keyframes fadeIn {
       to {
-        transform: translateY(0);
         opacity: 1;
+        transform: translateY(0);
       }
     }
 
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
+      font-size: 2.3rem;
       color: var(--text-dark);
-      margin-bottom: 10px;
-      letter-spacing: 0.5px;
+      margin-bottom: 8px;
     }
 
     h1 span {
@@ -86,21 +88,21 @@
 
     p {
       color: #555;
-      margin-bottom: 32px;
-      font-size: 0.96rem;
-      line-height: 1.5;
+      font-size: 1rem;
+      margin-bottom: 35px;
+      line-height: 1.6;
     }
 
     form {
       display: flex;
       flex-direction: column;
       gap: 20px;
+      text-align: left;
     }
 
     label {
-      text-align: left;
       font-weight: 500;
-      color: #444;
+      color: #333;
       font-size: 0.92rem;
     }
 
@@ -109,18 +111,20 @@
       border: 1px solid rgba(255, 123, 0, 0.3);
       border-radius: 12px;
       font-size: 1rem;
-      transition: all 0.3s ease;
       background: rgba(255, 255, 255, 0.85);
+      transition: all var(--transition);
+      width: 100%;
     }
 
     input:focus {
       border-color: var(--primary);
-      box-shadow: 0 0 8px rgba(255, 123, 0, 0.4);
+      box-shadow: 0 0 10px rgba(255, 123, 0, 0.5);
       outline: none;
       background: #fff;
     }
 
     .price-display {
+      text-align: center;
       background: rgba(255, 255, 255, 0.9);
       border: 1px solid rgba(255, 123, 0, 0.25);
       padding: 16px;
@@ -128,11 +132,12 @@
       font-weight: 600;
       color: var(--primary);
       font-size: 1.05rem;
-      transition: transform 0.3s;
+      transition: all 0.3s ease;
     }
 
     .price-display:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
+      background: rgba(255, 255, 255, 0.95);
     }
 
     button {
@@ -142,32 +147,29 @@
       border-radius: 14px;
       padding: 15px;
       font-size: 1.05rem;
-      cursor: pointer;
       font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 6px 15px rgba(255, 123, 0, 0.35);
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(255, 123, 0, 0.4);
+      transition: all var(--transition);
     }
 
     button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 22px rgba(255, 123, 0, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 25px rgba(255, 123, 0, 0.6);
     }
 
     footer {
-      margin-top: 28px;
+      margin-top: 35px;
       font-size: 0.85rem;
       color: #777;
     }
 
     @media (max-width: 520px) {
-      body {
-        padding: 40px 15px;
-      }
       .container {
-        padding: 35px 20px;
+        padding: 40px 25px;
       }
       h1 {
-        font-size: 1.8rem;
+        font-size: 1.9rem;
       }
     }
   </style>
@@ -175,14 +177,14 @@
 <body>
   <div class="container">
     <h1><span>Chez Nous</span> Chez Vous</h1>
-    <p>Experience true elegance — where modern comfort meets timeless luxury.</p>
+    <p>Experience the elegance of your home away from home — where modern comfort meets timeless luxury.</p>
 
     <form id="bookingForm">
       <label for="name">Full Name</label>
       <input type="text" id="name" required placeholder="Enter your full name">
 
       <label for="email">Email Address</label>
-      <input type="email" id="email" required placeholder="Enter your email">
+      <input type="email" id="email" required placeholder="Enter your email address">
 
       <label for="checkIn">Check-in Date</label>
       <input type="date" id="checkIn" required>
@@ -202,7 +204,7 @@
   <script>
     const form = document.getElementById('bookingForm');
     const priceDisplay = document.getElementById('priceDisplay');
-    const ratePerNight = 100000; // Example rate
+    const ratePerNight = 100;
 
     function calculateNights() {
       const checkIn = new Date(document.getElementById('checkIn').value);
@@ -213,13 +215,13 @@
       return { nights, total: nights * ratePerNight };
     }
 
-    document.getElementById('checkIn').addEventListener('change', updatePrice);
-    document.getElementById('checkOut').addEventListener('change', updatePrice);
-
     function updatePrice() {
       const { nights, total } = calculateNights();
       priceDisplay.textContent = `Total: ₦${total.toLocaleString()} (${nights} night${nights > 1 ? 's' : ''})`;
     }
+
+    document.getElementById('checkIn').addEventListener('change', updatePrice);
+    document.getElementById('checkOut').addEventListener('change', updatePrice);
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -249,7 +251,8 @@
             amount: total * 100,
             currency: 'NGN',
             callback: function(response) {
-              alert('Payment successful! Reference: ' + response.reference);
+              // Redirect to success page after payment
+              window.location.href = `success.html?ref=${response.reference}&amount=${total}`;
             },
             onClose: function() {
               alert('Transaction cancelled.');
