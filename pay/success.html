@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Successful - Chez Nous Chez Vous Apartments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #ff7b00;
+      --secondary: #ffd4a3;
+      --bg-gradient: linear-gradient(135deg, #fff7f0, #fff1e6);
+      --light: #ffffff;
+      --text-dark: #2c2c2c;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      color: var(--text-dark);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Floating confetti animation */
+    .confetti {
+      position: absolute;
+      top: -10px;
+      width: 10px;
+      height: 10px;
+      background: var(--primary);
+      opacity: 0.8;
+      border-radius: 50%;
+      animation: fall 4s infinite ease-in;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+
+    .container {
+      text-align: center;
+      background: var(--light);
+      padding: 50px 35px;
+      border-radius: 24px;
+      box-shadow: 0 10px 35px var(--shadow);
+      max-width: 460px;
+      width: 100%;
+      animation: fadeIn 0.8s ease-in-out;
+      position: relative;
+      z-index: 10;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .checkmark {
+      width: 95px;
+      height: 95px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary);
+      color: #fff;
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      animation: pop 0.5s ease-in-out;
+      box-shadow: 0 0 20px rgba(255, 123, 0, 0.4);
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    h1 {
+      color: var(--primary);
+      font-size: 1.9rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+      animation: slideIn 0.7s ease-in-out;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    .details {
+      background: #fff8f2;
+      border: 1px solid #ffe2c5;
+      padding: 18px;
+      border-radius: 14px;
+      margin-bottom: 25px;
+      font-size: 0.95rem;
+      color: #444;
+      text-align: left;
+      animation: fadeUp 1s ease;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .details strong {
+      color: var(--primary);
+    }
+
+    .button {
+      background-color: var(--primary);
+      color: var(--light);
+      border: none;
+      padding: 14px 28px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(255, 123, 0, 0.3);
+    }
+
+    .button:hover {
+      background-color: #e86e00;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(255, 123, 0, 0.4);
+    }
+
+    footer {
+      margin-top: 35px;
+      font-size: 0.85rem;
+      color: #aaa;
+      animation: fadeUp 1.2s ease;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 35px 20px;
+      }
+      h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Confetti particles -->
+  <script>
+    for (let i = 0; i < 25; i++) {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.backgroundColor = `hsl(${Math.random() * 60 + 30}, 90%, 60%)`;
+      confetti.style.animationDuration = 3 + Math.random() * 3 + 's';
+      confetti.style.width = confetti.style.height = Math.random() * 8 + 5 + 'px';
+      document.body.appendChild(confetti);
+    }
+  </script>
+
+  <div class="container">
+    <div class="checkmark">✓</div>
+    <h1>Payment Successful!</h1>
+    <p>Thank you for booking your stay with <strong>Chez Nous Chez Vous Apartments</strong>.</p>
+
+    <div class="details">
+      <p><strong>Booking Confirmed:</strong> A confirmation email has been sent to your mailbox.</p>
+      <p>We look forward to welcoming you soon to your luxurious home away from home.</p>
+    </div>
+
+    <button class="button" onclick="goHome()">Back to Homepage</button>
+
+    <footer>© 2025 Chez Nous Chez Vous Apartments — All rights reserved.</footer>
+  </div>
+
+  <script>
+    function goHome() {
+      window.location.href = "index.html"; // Update if needed
+    }
+  </script>
+</body>
+</html>
